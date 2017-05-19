@@ -45,13 +45,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -144,6 +173,55 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Company.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyClass.cs" />
+    <Compile Include="Models\CompanyForm.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyModule.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormValidation.cs" />
+    <Compile Include="Models\GlobalClass.cs" />
+    <Compile Include="Models\HasanHoustoneModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HasanHoustoneModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HasanHoustoneModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HasanHoustoneModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HasanHoustoneModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Modules.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffClass.cs" />
+    <Compile Include="Models\StaffList.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UniqueIDCreator.cs" />
+    <Compile Include="Models\Usergroup.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserGroupForm.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserGroupModule.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -696,6 +774,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\HasanHoustoneModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HasanHoustoneModel.Context.cs</LastGenOutput>
+      <DependentUpon>HasanHoustoneModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\HasanHoustoneModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HasanHoustoneModel.edmx</DependentUpon>
+      <LastGenOutput>HasanHoustoneModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Printingcss\css\AdminLTE.css" />
     <Content Include="Printingcss\css\bootstrap.css" />
     <Content Include="Printingcss\css\bootstrap.min.css" />
@@ -856,6 +944,13 @@
     <Content Include="Printingcss\fonts\ionicons.eot" />
     <Content Include="Printingcss\fonts\ionicons.ttf" />
     <Content Include="Printingcss\fonts\ionicons.woff" />
+    <EntityDeploy Include="Models\HasanHoustoneModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HasanHoustoneModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\HasanHoustoneModel.edmx.diagram">
+      <DependentUpon>HasanHoustoneModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\custom.js" />
@@ -930,7 +1025,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\datetimepicker-master\build\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -946,6 +1040,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

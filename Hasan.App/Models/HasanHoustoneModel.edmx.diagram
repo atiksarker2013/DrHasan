@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1aebba586dd54bb9a4a21354cefa4ea2" Name="Diagram1">
+        <EntityTypeShape EntityType="HasanHoutoneModel.Company" Width="1.5" PointX="1.5" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.CompanyForm" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.CompanyModule" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.Forms" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.Modules" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.StaffList" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.Usergroup" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.UserGroupForm" Width="1.5" PointX="8.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.UserGroupModule" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyForm_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyModule_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_Usergroup_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyForm_Forms" ManuallyRouted="false" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyForm_Modules" ManuallyRouted="false" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyModule_Modules" ManuallyRouted="false" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_Forms_Modules" ManuallyRouted="false" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupForm_Forms" ManuallyRouted="false" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupForm_Modules" ManuallyRouted="false" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupModule_Modules" ManuallyRouted="false" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_StaffList_Usergroup" ManuallyRouted="false" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupForm_Usergroup" ManuallyRouted="false" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupModule_Usergroup" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
