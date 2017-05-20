@@ -718,14 +718,14 @@ $(function () {
             // add the selected item
             terms.push(ui.item.label);
             $("#CustomerKey").val(ui.item.value);
-            $("#CustomerName").val(ui.item.CustomerName);
-            $("#CustomeAddress").val(ui.item.CustomeAddress);
-            $("#CPhone").val(ui.item.CPhone);
-            $("#CEmail").val(ui.item.CEmail);
-            $("#RepresentedBy").val(ui.item.RepresentedBy);
-            $("#Title").val(ui.item.Title);
-            $("#IVRTrackingNo").val(ui.item.IVRTrackingNo);
-            $("#IVRPin").val(ui.item.IVRPin);
+            $("#Id").val(ui.item.Id);
+            $("#Name").val(ui.item.Name);
+            $("#Address").val(ui.item.Address);
+            $("#ChiefComplains").val(ui.item.ChiefComplains);
+            $("#Age").val(ui.item.Age);
+            $("#Sex").val(ui.item.Sex);
+            //$("#IVRTrackingNo").val(ui.item.IVRTrackingNo);
+            //$("#IVRPin").val(ui.item.IVRPin);
             // add placeholder to get the comma-and-space at the end
             terms.push("");
             this.value = terms.join("");
