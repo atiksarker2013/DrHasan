@@ -170,7 +170,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AssignAccessController.cs" />
+    <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StaffController.cs" />
+    <Compile Include="Controllers\UsergrpController.cs" />
+    <Compile Include="Controllers\UserHomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1021,10 +1027,18 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\UserHome\Login.cshtml" />
+    <Content Include="Views\UserHome\Logout.cshtml" />
+    <Content Include="Views\UserHome\Index.cshtml" />
+    <Content Include="Views\Staff\MyProfile.cshtml" />
+    <Content Include="Views\AssignAccess\ChangePass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\datetimepicker-master\build\" />
+    <Folder Include="Views\Companies\" />
+    <Folder Include="Views\Manage\" />
+    <Folder Include="Views\Usergrp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
