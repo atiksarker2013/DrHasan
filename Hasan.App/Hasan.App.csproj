@@ -219,6 +219,15 @@
     <Compile Include="Models\StaffList.cs">
       <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tbl_Drug.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Investigation.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Patient.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UniqueIDCreator.cs" />
     <Compile Include="Models\Usergroup.cs">
       <DependentUpon>HasanHoustoneModel.tt</DependentUpon>

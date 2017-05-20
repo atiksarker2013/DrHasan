@@ -27,6 +27,9 @@
         <AssociationConnector Association="HasanHoutoneModel.FK_StaffList_Usergroup" ManuallyRouted="false" />
         <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupForm_Usergroup" ManuallyRouted="false" />
         <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupModule_Usergroup" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Drug" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Investigation" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Patient" Width="1.5" PointX="5.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
