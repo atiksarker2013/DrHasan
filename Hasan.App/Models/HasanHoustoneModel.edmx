@@ -109,6 +109,13 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="tbl_MajorArea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="tbl_Patient">
           <Key>
             <PropertyRef Name="Id" />
@@ -315,6 +322,7 @@
           <EntitySet Name="tbl_Drop" EntityType="Self.tbl_Drop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Drug" EntityType="Self.tbl_Drug" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Investigation" EntityType="Self.tbl_Investigation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_MajorArea" EntityType="Self.tbl_MajorArea" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Patient" EntityType="Self.tbl_Patient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usergroup" EntityType="Self.Usergroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserGroupForm" EntityType="Self.UserGroupForm" Schema="dbo" store:Type="Tables" />
@@ -442,6 +450,7 @@
             <End Role="Usergroup" EntitySet="Usergroup" />
             <End Role="UserGroupModule" EntitySet="UserGroupModule" />
           </AssociationSet>
+          <EntitySet Name="tbl_MajorArea" EntityType="HasanHoutoneModel.tbl_MajorArea" />
         </EntityContainer>
         <EntityType Name="Company">
           <Key>
@@ -769,6 +778,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tbl_MajorArea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -929,6 +945,14 @@
                 <ScalarProperty Name="CompanyKey" ColumnName="CompanyKey" />
                 <ScalarProperty Name="UserGroupKey" ColumnName="UserGroupKey" />
                 <ScalarProperty Name="UserGroupModuleKey" ColumnName="UserGroupModuleKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_MajorArea">
+            <EntityTypeMapping TypeName="HasanHoutoneModel.tbl_MajorArea">
+              <MappingFragment StoreEntitySet="tbl_MajorArea">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -173,6 +173,7 @@
     <Compile Include="Controllers\AssignAccessController.cs" />
     <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MajorAreaController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\tbl_DropController.cs" />
@@ -231,6 +232,9 @@
       <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_Investigation.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_MajorArea.cs">
       <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_Patient.cs">
@@ -1072,6 +1076,11 @@
     <Content Include="Views\tbl_Drop\Details.cshtml" />
     <Content Include="Views\tbl_Drop\Edit.cshtml" />
     <Content Include="Views\tbl_Drop\Index.cshtml" />
+    <Content Include="Views\MajorArea\Create.cshtml" />
+    <Content Include="Views\MajorArea\Delete.cshtml" />
+    <Content Include="Views\MajorArea\Details.cshtml" />
+    <Content Include="Views\MajorArea\Edit.cshtml" />
+    <Content Include="Views\MajorArea\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -38,5 +38,6 @@ namespace Hasan.App.Models
         public virtual DbSet<Usergroup> Usergroup { get; set; }
         public virtual DbSet<UserGroupForm> UserGroupForm { get; set; }
         public virtual DbSet<UserGroupModule> UserGroupModule { get; set; }
+        public virtual DbSet<tbl_MajorArea> tbl_MajorArea { get; set; }
     }
 }
