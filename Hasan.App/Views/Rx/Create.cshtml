@@ -1,8 +1,80 @@
-﻿
+﻿@model Hasan.App.Models.Prescription
+
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<script src="~/Scripts/scStateCity.js"></script>
+<link href="~/Content/datetimepicker-master/build/jquery.datetimepicker.min.css" rel="stylesheet" />
+
+
+<script type="text/javascript">
+
+    $(function () {
+        $('#ScheduleDate').datetimepicker({
+            step: 5
+        });
+    });
+
+</script>
+
+<h2>New Prescription</h2>
+
+<div class="row">
+    <div class="panel panel-default ">
+        <div class="panel-heading">Patient Info</div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Mrno, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Mrno, new { htmlAttributes = new { id = "Mrno", @class = "form-control" } })
+                            @Html.HiddenFor(model => model.PatientId, new { id = "PatientId" })
+                            @Html.ValidationMessageFor(model => model.PatientId, "", new { @class = "text-danger" })
+
+                            @*@Html.HiddenFor(model => model.JobKey, new { id = "JobKey" })
+                            @Html.HiddenFor(model => model.mess, new { id = "mess" })*@
+
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-default" onclick="window.open('@Url.Action("Create", "tbl_Patient", new { target="_blank" })')">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    
+                </div>
+
+                <div class="col-md-6">
+ 
+
+                    @*<div class="form-group">
+                        @Html.LabelFor(model => model.ScheduleDate, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+
+                            @Html.EditorFor(model => model.ScheduleDate, new { htmlAttributes = new { id = "ScheduleDate", @class = "form-control" } })
+
+                            @Html.ValidationMessageFor(model => model.ScheduleDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+                   
+
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="panel-footer">
+            <input type="submit" value="Save" id="Save" name="Save" class="btn btn-primary" />
+            <a href="@Url.Action("Index", "UserHome")" class="btn btn-primary">Cancel </a>
+
+            @*|| @Html.ActionLink("Back to List", "Index")*@
+        </div>
+    </div>
+</div>
 

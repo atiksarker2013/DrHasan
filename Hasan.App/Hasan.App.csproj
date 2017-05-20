@@ -172,6 +172,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AssignAccessController.cs" />
     <Compile Include="Controllers\CompaniesController.cs" />
+    <Compile Include="Controllers\DropdownUtilityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MajorAreaController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -817,6 +818,7 @@
     <Content Include="DataScript\1.sql" />
     <Content Include="DataScript\2.sql" />
     <Content Include="DataScript\3.sql" />
+    <Content Include="DataScript\4.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1104,6 +1106,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\datetimepicker-master\build\" />
     <Folder Include="Views\Companies\" />
+    <Folder Include="Views\DropdownUtility\" />
     <Folder Include="Views\Manage\" />
     <Folder Include="Views\Usergrp\" />
   </ItemGroup>
