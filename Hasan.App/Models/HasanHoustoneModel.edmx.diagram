@@ -5,32 +5,32 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="1aebba586dd54bb9a4a21354cefa4ea2" Name="Diagram1">
-        <EntityTypeShape EntityType="HasanHoutoneModel.Company" Width="1.5" PointX="1.5" PointY="18.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HasanHoutoneModel.CompanyForm" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HasanHoutoneModel.CompanyModule" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HasanHoutoneModel.Forms" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HasanHoutoneModel.Modules" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HasanHoutoneModel.StaffList" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HasanHoutoneModel.Usergroup" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HasanHoutoneModel.UserGroupForm" Width="1.5" PointX="8.25" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HasanHoutoneModel.UserGroupModule" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyForm_Company" ManuallyRouted="false" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyModule_Company" ManuallyRouted="false" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_Usergroup_Company" ManuallyRouted="false" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyForm_Forms" ManuallyRouted="false" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyForm_Modules" ManuallyRouted="false" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyModule_Modules" ManuallyRouted="false" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_Forms_Modules" ManuallyRouted="false" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupForm_Forms" ManuallyRouted="false" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupForm_Modules" ManuallyRouted="false" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupModule_Modules" ManuallyRouted="false" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_StaffList_Usergroup" ManuallyRouted="false" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupForm_Usergroup" ManuallyRouted="false" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupModule_Usergroup" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Drug" Width="1.5" PointX="5.375" PointY="0.75" />
-        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Investigation" Width="1.5" PointX="5.375" PointY="3.75" />
-        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Patient" Width="1.5" PointX="5.375" PointY="6.75" />
-        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Drop" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.Company" Width="1.5" PointX="1.5" PointY="18.25" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.CompanyForm" Width="1.5" PointX="5.25" PointY="10.5" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.CompanyModule" Width="1.5" PointX="3" PointY="6.25" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.Forms" Width="1.5" PointX="3" PointY="14.5" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.Modules" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.StaffList" Width="1.5" PointX="3" PointY="9.125" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Drop" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Drug" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Investigation" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Patient" Width="1.5" PointX="5.75" PointY="6.75" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.Usergroup" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.UserGroupForm" Width="1.5" PointX="8.25" PointY="10.375" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.UserGroupModule" Width="1.5" PointX="3" PointY="3.125" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyForm_Company" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyModule_Company" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_Usergroup_Company" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyForm_Forms" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyForm_Modules" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_CompanyModule_Modules" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_Forms_Modules" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupForm_Forms" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupForm_Modules" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupModule_Modules" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_StaffList_Usergroup" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupForm_Usergroup" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupModule_Usergroup" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
