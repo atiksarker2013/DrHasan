@@ -175,6 +175,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
+    <Compile Include="Controllers\tbl_DropController.cs" />
+    <Compile Include="Controllers\tbl_DrugController.cs" />
+    <Compile Include="Controllers\tbl_InvestigationController.cs" />
+    <Compile Include="Controllers\tbl_PatientController.cs" />
     <Compile Include="Controllers\UsergrpController.cs" />
     <Compile Include="Controllers\UserHomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -215,8 +219,12 @@
     <Compile Include="Models\Modules.cs">
       <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\StaffClass.cs" />
     <Compile Include="Models\StaffList.cs">
+      <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Drop.cs">
       <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_Drug.cs">
@@ -786,6 +794,7 @@
     <Content Include="Content\themes\smoothness\jquery-ui.css" />
     <Content Include="Content\themes\smoothness\jquery.datetimepicker.css" />
     <Content Include="DataScript\1.sql" />
+    <Content Include="DataScript\2.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1042,6 +1051,26 @@
     <Content Include="Views\UserHome\Index.cshtml" />
     <Content Include="Views\Staff\MyProfile.cshtml" />
     <Content Include="Views\AssignAccess\ChangePass.cshtml" />
+    <Content Include="Views\tbl_Patient\Create.cshtml" />
+    <Content Include="Views\tbl_Patient\Delete.cshtml" />
+    <Content Include="Views\tbl_Patient\Details.cshtml" />
+    <Content Include="Views\tbl_Patient\Edit.cshtml" />
+    <Content Include="Views\tbl_Patient\Index.cshtml" />
+    <Content Include="Views\tbl_Drug\Create.cshtml" />
+    <Content Include="Views\tbl_Drug\Delete.cshtml" />
+    <Content Include="Views\tbl_Drug\Details.cshtml" />
+    <Content Include="Views\tbl_Drug\Edit.cshtml" />
+    <Content Include="Views\tbl_Drug\Index.cshtml" />
+    <Content Include="Views\tbl_Investigation\Create.cshtml" />
+    <Content Include="Views\tbl_Investigation\Delete.cshtml" />
+    <Content Include="Views\tbl_Investigation\Details.cshtml" />
+    <Content Include="Views\tbl_Investigation\Edit.cshtml" />
+    <Content Include="Views\tbl_Investigation\Index.cshtml" />
+    <Content Include="Views\tbl_Drop\Create.cshtml" />
+    <Content Include="Views\tbl_Drop\Delete.cshtml" />
+    <Content Include="Views\tbl_Drop\Details.cshtml" />
+    <Content Include="Views\tbl_Drop\Edit.cshtml" />
+    <Content Include="Views\tbl_Drop\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

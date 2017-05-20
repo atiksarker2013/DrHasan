@@ -88,12 +88,13 @@
           <Property Name="IsUser" Type="bit" />
           <Property Name="IsDelete" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'HasanHoutone.dbo.tbl_Drop' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="tbl_Drop">
-          <Property Name="Id" Type="int" />
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar(max)" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="tbl_Drug">
           <Key>
             <PropertyRef Name="Id" />
@@ -311,6 +312,7 @@ warning 6013: The table/view 'HasanHoutone.dbo.tbl_Drop' does not have a primary
           <EntitySet Name="Forms" EntityType="Self.Forms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Modules" EntityType="Self.Modules" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StaffList" EntityType="Self.StaffList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Drop" EntityType="Self.tbl_Drop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Drug" EntityType="Self.tbl_Drug" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Investigation" EntityType="Self.tbl_Investigation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Patient" EntityType="Self.tbl_Patient" Schema="dbo" store:Type="Tables" />
@@ -732,6 +734,7 @@ warning 6013: The table/view 'HasanHoutone.dbo.tbl_Drop' does not have a primary
           <EntitySet Name="tbl_Drug" EntityType="HasanHoutoneModel.tbl_Drug" />
           <EntitySet Name="tbl_Investigation" EntityType="HasanHoutoneModel.tbl_Investigation" />
           <EntitySet Name="tbl_Patient" EntityType="HasanHoutoneModel.tbl_Patient" />
+          <EntitySet Name="tbl_Drop" EntityType="HasanHoutoneModel.tbl_Drop" />
         </EntityContainer>
         <EntityType Name="tbl_Drug">
           <Key>
@@ -758,6 +761,13 @@ warning 6013: The table/view 'HasanHoutone.dbo.tbl_Drop' does not have a primary
           <Property Name="Age" Type="Int32" />
           <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Mrno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_Drop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -909,6 +919,14 @@ warning 6013: The table/view 'HasanHoutone.dbo.tbl_Drop' does not have a primary
                 <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="ChiefComplains" ColumnName="ChiefComplains" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Drop">
+            <EntityTypeMapping TypeName="HasanHoutoneModel.tbl_Drop">
+              <MappingFragment StoreEntitySet="tbl_Drop">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

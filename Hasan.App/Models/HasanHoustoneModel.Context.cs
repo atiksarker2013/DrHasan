@@ -37,5 +37,6 @@ namespace Hasan.App.Models
         public virtual DbSet<tbl_Drug> tbl_Drug { get; set; }
         public virtual DbSet<tbl_Investigation> tbl_Investigation { get; set; }
         public virtual DbSet<tbl_Patient> tbl_Patient { get; set; }
+        public virtual DbSet<tbl_Drop> tbl_Drop { get; set; }
     }
 }
