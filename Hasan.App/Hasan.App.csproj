@@ -223,6 +223,9 @@
     </Compile>
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Prescription.cs" />
+    <Compile Include="Models\RxDrop.cs" />
+    <Compile Include="Models\RxDrug.cs" />
+    <Compile Include="Models\RxInvestigation.cs" />
     <Compile Include="Models\StaffClass.cs" />
     <Compile Include="Models\StaffList.cs">
       <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
