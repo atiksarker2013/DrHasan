@@ -14,6 +14,12 @@ namespace Hasan.App.Models
     
     public partial class tbl_Patient
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbl_Patient()
+        {
+            this.tbl_Rx = new HashSet<tbl_Rx>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
@@ -21,5 +27,8 @@ namespace Hasan.App.Models
         public Nullable<int> Age { get; set; }
         public string Sex { get; set; }
         public string Mrno { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_Rx> tbl_Rx { get; set; }
     }
 }

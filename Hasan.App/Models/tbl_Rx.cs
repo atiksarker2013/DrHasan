@@ -12,18 +12,16 @@ namespace Hasan.App.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_MajorArea
+    public partial class tbl_Rx
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tbl_MajorArea()
-        {
-            this.tbl_Rx = new HashSet<tbl_Rx>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
+        public Nullable<int> MajorAreaId { get; set; }
+        public string Rx { get; set; }
+        public Nullable<int> PatientId { get; set; }
+        public string NextVisit { get; set; }
+        public Nullable<System.DateTime> EntryDate { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_Rx> tbl_Rx { get; set; }
+        public virtual tbl_MajorArea tbl_MajorArea { get; set; }
+        public virtual tbl_Patient tbl_Patient { get; set; }
     }
 }

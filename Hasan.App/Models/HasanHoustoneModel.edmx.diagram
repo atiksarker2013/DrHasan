@@ -32,7 +32,10 @@
         <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupForm_Usergroup" />
         <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupModule_Usergroup" />
         <EntityTypeShape EntityType="HasanHoutoneModel.tbl_MajorArea" Width="1.5" PointX="7.375" PointY="0.75" />
-      </Diagram>
+        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Rx" Width="1.5" PointX="9.625" PointY="3.75" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_tbl_Rx_tbl_MajorArea" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_tbl_Rx_tbl_Patient" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

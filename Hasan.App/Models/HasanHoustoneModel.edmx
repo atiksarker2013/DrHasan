@@ -128,6 +128,17 @@
           <Property Name="Sex" Type="varchar" MaxLength="50" />
           <Property Name="Mrno" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="tbl_Rx">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="MajorAreaId" Type="int" />
+          <Property Name="Rx" Type="varchar(max)" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="NextVisit" Type="varchar(max)" />
+          <Property Name="EntryDate" Type="date" />
+        </EntityType>
         <EntityType Name="Usergroup">
           <Key>
             <PropertyRef Name="UserGroupKey" />
@@ -240,6 +251,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tbl_Rx_tbl_MajorArea">
+          <End Role="tbl_MajorArea" Type="Self.tbl_MajorArea" Multiplicity="0..1" />
+          <End Role="tbl_Rx" Type="Self.tbl_Rx" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_MajorArea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Rx">
+              <PropertyRef Name="MajorAreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Rx_tbl_Patient">
+          <End Role="tbl_Patient" Type="Self.tbl_Patient" Multiplicity="0..1" />
+          <End Role="tbl_Rx" Type="Self.tbl_Rx" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Rx">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Usergroup_Company">
           <End Role="Company" Type="Self.Company" Multiplicity="1" />
           <End Role="Usergroup" Type="Self.Usergroup" Multiplicity="*" />
@@ -324,6 +359,7 @@
           <EntitySet Name="tbl_Investigation" EntityType="Self.tbl_Investigation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_MajorArea" EntityType="Self.tbl_MajorArea" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Patient" EntityType="Self.tbl_Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Rx" EntityType="Self.tbl_Rx" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usergroup" EntityType="Self.Usergroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserGroupForm" EntityType="Self.UserGroupForm" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserGroupModule" EntityType="Self.UserGroupModule" Schema="dbo" store:Type="Tables" />
@@ -354,6 +390,14 @@
           <AssociationSet Name="FK_StaffList_Usergroup" Association="Self.FK_StaffList_Usergroup">
             <End Role="Usergroup" EntitySet="Usergroup" />
             <End Role="StaffList" EntitySet="StaffList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Rx_tbl_MajorArea" Association="Self.FK_tbl_Rx_tbl_MajorArea">
+            <End Role="tbl_MajorArea" EntitySet="tbl_MajorArea" />
+            <End Role="tbl_Rx" EntitySet="tbl_Rx" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Rx_tbl_Patient" Association="Self.FK_tbl_Rx_tbl_Patient">
+            <End Role="tbl_Patient" EntitySet="tbl_Patient" />
+            <End Role="tbl_Rx" EntitySet="tbl_Rx" />
           </AssociationSet>
           <AssociationSet Name="FK_Usergroup_Company" Association="Self.FK_Usergroup_Company">
             <End Role="Company" EntitySet="Company" />
@@ -451,7 +495,16 @@
             <End Role="UserGroupModule" EntitySet="UserGroupModule" />
           </AssociationSet>
           <EntitySet Name="tbl_MajorArea" EntityType="HasanHoutoneModel.tbl_MajorArea" />
-        </EntityContainer>
+          <EntitySet Name="tbl_Rx" EntityType="HasanHoutoneModel.tbl_Rx" />
+          <AssociationSet Name="FK_tbl_Rx_tbl_MajorArea" Association="HasanHoutoneModel.FK_tbl_Rx_tbl_MajorArea">
+            <End Role="tbl_MajorArea" EntitySet="tbl_MajorArea" />
+            <End Role="tbl_Rx" EntitySet="tbl_Rx" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Rx_tbl_Patient" Association="HasanHoutoneModel.FK_tbl_Rx_tbl_Patient">
+            <End Role="tbl_Patient" EntitySet="tbl_Patient" />
+            <End Role="tbl_Rx" EntitySet="tbl_Rx" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="CompanyKey" />
@@ -584,6 +637,7 @@
           <Property Name="Age" Type="Int32" />
           <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Mrno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_Rx" Relationship="HasanHoutoneModel.FK_tbl_Rx_tbl_Patient" FromRole="tbl_Patient" ToRole="tbl_Rx" />
         </EntityType>
         <EntityType Name="Usergroup">
           <Key>
@@ -784,7 +838,45 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_Rx" Relationship="HasanHoutoneModel.FK_tbl_Rx_tbl_MajorArea" FromRole="tbl_MajorArea" ToRole="tbl_Rx" />
         </EntityType>
+        <EntityType Name="tbl_Rx">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="MajorAreaId" Type="Int32" />
+          <Property Name="Rx" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="NextVisit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tbl_MajorArea" Relationship="HasanHoutoneModel.FK_tbl_Rx_tbl_MajorArea" FromRole="tbl_Rx" ToRole="tbl_MajorArea" />
+          <NavigationProperty Name="tbl_Patient" Relationship="HasanHoutoneModel.FK_tbl_Rx_tbl_Patient" FromRole="tbl_Rx" ToRole="tbl_Patient" />
+        </EntityType>
+        <Association Name="FK_tbl_Rx_tbl_MajorArea">
+          <End Type="HasanHoutoneModel.tbl_MajorArea" Role="tbl_MajorArea" Multiplicity="0..1" />
+          <End Type="HasanHoutoneModel.tbl_Rx" Role="tbl_Rx" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_MajorArea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Rx">
+              <PropertyRef Name="MajorAreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Rx_tbl_Patient">
+          <End Type="HasanHoutoneModel.tbl_Patient" Role="tbl_Patient" Multiplicity="0..1" />
+          <End Type="HasanHoutoneModel.tbl_Rx" Role="tbl_Rx" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Rx">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -952,6 +1044,18 @@
             <EntityTypeMapping TypeName="HasanHoutoneModel.tbl_MajorArea">
               <MappingFragment StoreEntitySet="tbl_MajorArea">
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Rx">
+            <EntityTypeMapping TypeName="HasanHoutoneModel.tbl_Rx">
+              <MappingFragment StoreEntitySet="tbl_Rx">
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="NextVisit" ColumnName="NextVisit" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="Rx" ColumnName="Rx" />
+                <ScalarProperty Name="MajorAreaId" ColumnName="MajorAreaId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
