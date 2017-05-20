@@ -14,7 +14,16 @@ namespace Hasan.App.Models
     
     public partial class tbl_Drop
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbl_Drop()
+        {
+            this.tbl_RxDrop = new HashSet<tbl_RxDrop>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_RxDrop> tbl_RxDrop { get; set; }
     }
 }

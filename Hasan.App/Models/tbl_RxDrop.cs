@@ -12,18 +12,14 @@ namespace Hasan.App.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_Drug
+    public partial class tbl_RxDrop
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tbl_Drug()
-        {
-            this.tbl_RxDrug = new HashSet<tbl_RxDrug>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
+        public Nullable<int> RxId { get; set; }
+        public Nullable<int> DropId { get; set; }
+        public string Instruction { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_RxDrug> tbl_RxDrug { get; set; }
+        public virtual tbl_Drop tbl_Drop { get; set; }
+        public virtual tbl_Rx tbl_Rx { get; set; }
     }
 }

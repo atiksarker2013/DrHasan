@@ -35,6 +35,15 @@
         <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Rx" Width="1.5" PointX="9.625" PointY="3.75" />
         <AssociationConnector Association="HasanHoutoneModel.FK_tbl_Rx_tbl_MajorArea" />
         <AssociationConnector Association="HasanHoutoneModel.FK_tbl_Rx_tbl_Patient" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_RxDrop" Width="1.5" PointX="11.875" PointY="3.75" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_RxDrug" Width="1.5" PointX="11.875" PointY="0.75" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_RxInvestigation" Width="1.5" PointX="11.875" PointY="7.25" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxDrop_tbl_Drop" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxDrug_tbl_Drug" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxInvestigation_tbl_Investigation" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxDrop_tbl_Rx" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxDrug_tbl_Rx" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxInvestigation_tbl_Rx" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

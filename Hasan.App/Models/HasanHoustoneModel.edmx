@@ -139,6 +139,33 @@
           <Property Name="NextVisit" Type="varchar(max)" />
           <Property Name="EntryDate" Type="date" />
         </EntityType>
+        <EntityType Name="tbl_RxDrop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RxId" Type="int" />
+          <Property Name="DropId" Type="int" />
+          <Property Name="Instruction" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_RxDrug">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RxId" Type="int" />
+          <Property Name="DrugId" Type="int" />
+          <Property Name="Instruction" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_RxInvestigation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RxId" Type="int" />
+          <Property Name="InvestigationId" Type="int" />
+          <Property Name="Instruction" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="Usergroup">
           <Key>
             <PropertyRef Name="UserGroupKey" />
@@ -275,6 +302,78 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tbl_RxDrop_tbl_Drop">
+          <End Role="tbl_Drop" Type="Self.tbl_Drop" Multiplicity="0..1" />
+          <End Role="tbl_RxDrop" Type="Self.tbl_RxDrop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Drop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_RxDrop">
+              <PropertyRef Name="DropId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_RxDrop_tbl_Rx">
+          <End Role="tbl_Rx" Type="Self.tbl_Rx" Multiplicity="0..1" />
+          <End Role="tbl_RxDrop" Type="Self.tbl_RxDrop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Rx">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_RxDrop">
+              <PropertyRef Name="RxId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_RxDrug_tbl_Drug">
+          <End Role="tbl_Drug" Type="Self.tbl_Drug" Multiplicity="0..1" />
+          <End Role="tbl_RxDrug" Type="Self.tbl_RxDrug" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Drug">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_RxDrug">
+              <PropertyRef Name="DrugId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_RxDrug_tbl_Rx">
+          <End Role="tbl_Rx" Type="Self.tbl_Rx" Multiplicity="0..1" />
+          <End Role="tbl_RxDrug" Type="Self.tbl_RxDrug" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Rx">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_RxDrug">
+              <PropertyRef Name="RxId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_RxInvestigation_tbl_Investigation">
+          <End Role="tbl_Investigation" Type="Self.tbl_Investigation" Multiplicity="0..1" />
+          <End Role="tbl_RxInvestigation" Type="Self.tbl_RxInvestigation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Investigation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_RxInvestigation">
+              <PropertyRef Name="InvestigationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_RxInvestigation_tbl_Rx">
+          <End Role="tbl_Rx" Type="Self.tbl_Rx" Multiplicity="0..1" />
+          <End Role="tbl_RxInvestigation" Type="Self.tbl_RxInvestigation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Rx">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_RxInvestigation">
+              <PropertyRef Name="RxId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Usergroup_Company">
           <End Role="Company" Type="Self.Company" Multiplicity="1" />
           <End Role="Usergroup" Type="Self.Usergroup" Multiplicity="*" />
@@ -360,6 +459,9 @@
           <EntitySet Name="tbl_MajorArea" EntityType="Self.tbl_MajorArea" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Patient" EntityType="Self.tbl_Patient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Rx" EntityType="Self.tbl_Rx" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_RxDrop" EntityType="Self.tbl_RxDrop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_RxDrug" EntityType="Self.tbl_RxDrug" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_RxInvestigation" EntityType="Self.tbl_RxInvestigation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usergroup" EntityType="Self.Usergroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserGroupForm" EntityType="Self.UserGroupForm" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserGroupModule" EntityType="Self.UserGroupModule" Schema="dbo" store:Type="Tables" />
@@ -398,6 +500,30 @@
           <AssociationSet Name="FK_tbl_Rx_tbl_Patient" Association="Self.FK_tbl_Rx_tbl_Patient">
             <End Role="tbl_Patient" EntitySet="tbl_Patient" />
             <End Role="tbl_Rx" EntitySet="tbl_Rx" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_RxDrop_tbl_Drop" Association="Self.FK_tbl_RxDrop_tbl_Drop">
+            <End Role="tbl_Drop" EntitySet="tbl_Drop" />
+            <End Role="tbl_RxDrop" EntitySet="tbl_RxDrop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_RxDrop_tbl_Rx" Association="Self.FK_tbl_RxDrop_tbl_Rx">
+            <End Role="tbl_Rx" EntitySet="tbl_Rx" />
+            <End Role="tbl_RxDrop" EntitySet="tbl_RxDrop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_RxDrug_tbl_Drug" Association="Self.FK_tbl_RxDrug_tbl_Drug">
+            <End Role="tbl_Drug" EntitySet="tbl_Drug" />
+            <End Role="tbl_RxDrug" EntitySet="tbl_RxDrug" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_RxDrug_tbl_Rx" Association="Self.FK_tbl_RxDrug_tbl_Rx">
+            <End Role="tbl_Rx" EntitySet="tbl_Rx" />
+            <End Role="tbl_RxDrug" EntitySet="tbl_RxDrug" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_RxInvestigation_tbl_Investigation" Association="Self.FK_tbl_RxInvestigation_tbl_Investigation">
+            <End Role="tbl_Investigation" EntitySet="tbl_Investigation" />
+            <End Role="tbl_RxInvestigation" EntitySet="tbl_RxInvestigation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_RxInvestigation_tbl_Rx" Association="Self.FK_tbl_RxInvestigation_tbl_Rx">
+            <End Role="tbl_Rx" EntitySet="tbl_Rx" />
+            <End Role="tbl_RxInvestigation" EntitySet="tbl_RxInvestigation" />
           </AssociationSet>
           <AssociationSet Name="FK_Usergroup_Company" Association="Self.FK_Usergroup_Company">
             <End Role="Company" EntitySet="Company" />
@@ -503,6 +629,33 @@
           <AssociationSet Name="FK_tbl_Rx_tbl_Patient" Association="HasanHoutoneModel.FK_tbl_Rx_tbl_Patient">
             <End Role="tbl_Patient" EntitySet="tbl_Patient" />
             <End Role="tbl_Rx" EntitySet="tbl_Rx" />
+          </AssociationSet>
+          <EntitySet Name="tbl_RxDrop" EntityType="HasanHoutoneModel.tbl_RxDrop" />
+          <EntitySet Name="tbl_RxDrug" EntityType="HasanHoutoneModel.tbl_RxDrug" />
+          <EntitySet Name="tbl_RxInvestigation" EntityType="HasanHoutoneModel.tbl_RxInvestigation" />
+          <AssociationSet Name="FK_tbl_RxDrop_tbl_Drop" Association="HasanHoutoneModel.FK_tbl_RxDrop_tbl_Drop">
+            <End Role="tbl_Drop" EntitySet="tbl_Drop" />
+            <End Role="tbl_RxDrop" EntitySet="tbl_RxDrop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_RxDrug_tbl_Drug" Association="HasanHoutoneModel.FK_tbl_RxDrug_tbl_Drug">
+            <End Role="tbl_Drug" EntitySet="tbl_Drug" />
+            <End Role="tbl_RxDrug" EntitySet="tbl_RxDrug" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_RxInvestigation_tbl_Investigation" Association="HasanHoutoneModel.FK_tbl_RxInvestigation_tbl_Investigation">
+            <End Role="tbl_Investigation" EntitySet="tbl_Investigation" />
+            <End Role="tbl_RxInvestigation" EntitySet="tbl_RxInvestigation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_RxDrop_tbl_Rx" Association="HasanHoutoneModel.FK_tbl_RxDrop_tbl_Rx">
+            <End Role="tbl_Rx" EntitySet="tbl_Rx" />
+            <End Role="tbl_RxDrop" EntitySet="tbl_RxDrop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_RxDrug_tbl_Rx" Association="HasanHoutoneModel.FK_tbl_RxDrug_tbl_Rx">
+            <End Role="tbl_Rx" EntitySet="tbl_Rx" />
+            <End Role="tbl_RxDrug" EntitySet="tbl_RxDrug" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_RxInvestigation_tbl_Rx" Association="HasanHoutoneModel.FK_tbl_RxInvestigation_tbl_Rx">
+            <End Role="tbl_Rx" EntitySet="tbl_Rx" />
+            <End Role="tbl_RxInvestigation" EntitySet="tbl_RxInvestigation" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Company">
@@ -611,6 +764,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_RxDrop" Relationship="HasanHoutoneModel.FK_tbl_RxDrop_tbl_Drop" FromRole="tbl_Drop" ToRole="tbl_RxDrop" />
         </EntityType>
         <EntityType Name="tbl_Drug">
           <Key>
@@ -618,6 +772,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_RxDrug" Relationship="HasanHoutoneModel.FK_tbl_RxDrug_tbl_Drug" FromRole="tbl_Drug" ToRole="tbl_RxDrug" />
         </EntityType>
         <EntityType Name="tbl_Investigation">
           <Key>
@@ -625,6 +780,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_RxInvestigation" Relationship="HasanHoutoneModel.FK_tbl_RxInvestigation_tbl_Investigation" FromRole="tbl_Investigation" ToRole="tbl_RxInvestigation" />
         </EntityType>
         <EntityType Name="tbl_Patient">
           <Key>
@@ -852,6 +1008,9 @@
           <Property Name="EntryDate" Type="DateTime" Precision="0" />
           <NavigationProperty Name="tbl_MajorArea" Relationship="HasanHoutoneModel.FK_tbl_Rx_tbl_MajorArea" FromRole="tbl_Rx" ToRole="tbl_MajorArea" />
           <NavigationProperty Name="tbl_Patient" Relationship="HasanHoutoneModel.FK_tbl_Rx_tbl_Patient" FromRole="tbl_Rx" ToRole="tbl_Patient" />
+          <NavigationProperty Name="tbl_RxDrop" Relationship="HasanHoutoneModel.FK_tbl_RxDrop_tbl_Rx" FromRole="tbl_Rx" ToRole="tbl_RxDrop" />
+          <NavigationProperty Name="tbl_RxDrug" Relationship="HasanHoutoneModel.FK_tbl_RxDrug_tbl_Rx" FromRole="tbl_Rx" ToRole="tbl_RxDrug" />
+          <NavigationProperty Name="tbl_RxInvestigation" Relationship="HasanHoutoneModel.FK_tbl_RxInvestigation_tbl_Rx" FromRole="tbl_Rx" ToRole="tbl_RxInvestigation" />
         </EntityType>
         <Association Name="FK_tbl_Rx_tbl_MajorArea">
           <End Type="HasanHoutoneModel.tbl_MajorArea" Role="tbl_MajorArea" Multiplicity="0..1" />
@@ -874,6 +1033,111 @@
             </Principal>
             <Dependent Role="tbl_Rx">
               <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_RxDrop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RxId" Type="Int32" />
+          <Property Name="DropId" Type="Int32" />
+          <Property Name="Instruction" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_Drop" Relationship="HasanHoutoneModel.FK_tbl_RxDrop_tbl_Drop" FromRole="tbl_RxDrop" ToRole="tbl_Drop" />
+          <NavigationProperty Name="tbl_Rx" Relationship="HasanHoutoneModel.FK_tbl_RxDrop_tbl_Rx" FromRole="tbl_RxDrop" ToRole="tbl_Rx" />
+        </EntityType>
+        <EntityType Name="tbl_RxDrug">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RxId" Type="Int32" />
+          <Property Name="DrugId" Type="Int32" />
+          <Property Name="Instruction" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_Drug" Relationship="HasanHoutoneModel.FK_tbl_RxDrug_tbl_Drug" FromRole="tbl_RxDrug" ToRole="tbl_Drug" />
+          <NavigationProperty Name="tbl_Rx" Relationship="HasanHoutoneModel.FK_tbl_RxDrug_tbl_Rx" FromRole="tbl_RxDrug" ToRole="tbl_Rx" />
+        </EntityType>
+        <EntityType Name="tbl_RxInvestigation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RxId" Type="Int32" />
+          <Property Name="InvestigationId" Type="Int32" />
+          <Property Name="Instruction" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_Investigation" Relationship="HasanHoutoneModel.FK_tbl_RxInvestigation_tbl_Investigation" FromRole="tbl_RxInvestigation" ToRole="tbl_Investigation" />
+          <NavigationProperty Name="tbl_Rx" Relationship="HasanHoutoneModel.FK_tbl_RxInvestigation_tbl_Rx" FromRole="tbl_RxInvestigation" ToRole="tbl_Rx" />
+        </EntityType>
+        <Association Name="FK_tbl_RxDrop_tbl_Drop">
+          <End Type="HasanHoutoneModel.tbl_Drop" Role="tbl_Drop" Multiplicity="0..1" />
+          <End Type="HasanHoutoneModel.tbl_RxDrop" Role="tbl_RxDrop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Drop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_RxDrop">
+              <PropertyRef Name="DropId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_RxDrug_tbl_Drug">
+          <End Type="HasanHoutoneModel.tbl_Drug" Role="tbl_Drug" Multiplicity="0..1" />
+          <End Type="HasanHoutoneModel.tbl_RxDrug" Role="tbl_RxDrug" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Drug">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_RxDrug">
+              <PropertyRef Name="DrugId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_RxInvestigation_tbl_Investigation">
+          <End Type="HasanHoutoneModel.tbl_Investigation" Role="tbl_Investigation" Multiplicity="0..1" />
+          <End Type="HasanHoutoneModel.tbl_RxInvestigation" Role="tbl_RxInvestigation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Investigation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_RxInvestigation">
+              <PropertyRef Name="InvestigationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_RxDrop_tbl_Rx">
+          <End Type="HasanHoutoneModel.tbl_Rx" Role="tbl_Rx" Multiplicity="0..1" />
+          <End Type="HasanHoutoneModel.tbl_RxDrop" Role="tbl_RxDrop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Rx">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_RxDrop">
+              <PropertyRef Name="RxId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_RxDrug_tbl_Rx">
+          <End Type="HasanHoutoneModel.tbl_Rx" Role="tbl_Rx" Multiplicity="0..1" />
+          <End Type="HasanHoutoneModel.tbl_RxDrug" Role="tbl_RxDrug" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Rx">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_RxDrug">
+              <PropertyRef Name="RxId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_RxInvestigation_tbl_Rx">
+          <End Type="HasanHoutoneModel.tbl_Rx" Role="tbl_Rx" Multiplicity="0..1" />
+          <End Type="HasanHoutoneModel.tbl_RxInvestigation" Role="tbl_RxInvestigation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Rx">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_RxInvestigation">
+              <PropertyRef Name="RxId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1056,6 +1320,36 @@
                 <ScalarProperty Name="PatientId" ColumnName="PatientId" />
                 <ScalarProperty Name="Rx" ColumnName="Rx" />
                 <ScalarProperty Name="MajorAreaId" ColumnName="MajorAreaId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_RxDrop">
+            <EntityTypeMapping TypeName="HasanHoutoneModel.tbl_RxDrop">
+              <MappingFragment StoreEntitySet="tbl_RxDrop">
+                <ScalarProperty Name="Instruction" ColumnName="Instruction" />
+                <ScalarProperty Name="DropId" ColumnName="DropId" />
+                <ScalarProperty Name="RxId" ColumnName="RxId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_RxDrug">
+            <EntityTypeMapping TypeName="HasanHoutoneModel.tbl_RxDrug">
+              <MappingFragment StoreEntitySet="tbl_RxDrug">
+                <ScalarProperty Name="Instruction" ColumnName="Instruction" />
+                <ScalarProperty Name="DrugId" ColumnName="DrugId" />
+                <ScalarProperty Name="RxId" ColumnName="RxId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_RxInvestigation">
+            <EntityTypeMapping TypeName="HasanHoutoneModel.tbl_RxInvestigation">
+              <MappingFragment StoreEntitySet="tbl_RxInvestigation">
+                <ScalarProperty Name="Instruction" ColumnName="Instruction" />
+                <ScalarProperty Name="InvestigationId" ColumnName="InvestigationId" />
+                <ScalarProperty Name="RxId" ColumnName="RxId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

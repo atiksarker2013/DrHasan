@@ -14,6 +14,14 @@ namespace Hasan.App.Models
     
     public partial class tbl_Rx
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbl_Rx()
+        {
+            this.tbl_RxDrop = new HashSet<tbl_RxDrop>();
+            this.tbl_RxDrug = new HashSet<tbl_RxDrug>();
+            this.tbl_RxInvestigation = new HashSet<tbl_RxInvestigation>();
+        }
+    
         public int Id { get; set; }
         public Nullable<int> MajorAreaId { get; set; }
         public string Rx { get; set; }
@@ -23,5 +31,11 @@ namespace Hasan.App.Models
     
         public virtual tbl_MajorArea tbl_MajorArea { get; set; }
         public virtual tbl_Patient tbl_Patient { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_RxDrop> tbl_RxDrop { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_RxDrug> tbl_RxDrug { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_RxInvestigation> tbl_RxInvestigation { get; set; }
     }
 }

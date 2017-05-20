@@ -14,7 +14,16 @@ namespace Hasan.App.Models
     
     public partial class tbl_Investigation
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbl_Investigation()
+        {
+            this.tbl_RxInvestigation = new HashSet<tbl_RxInvestigation>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_RxInvestigation> tbl_RxInvestigation { get; set; }
     }
 }

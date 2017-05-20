@@ -40,5 +40,8 @@ namespace Hasan.App.Models
         public virtual DbSet<UserGroupModule> UserGroupModule { get; set; }
         public virtual DbSet<tbl_MajorArea> tbl_MajorArea { get; set; }
         public virtual DbSet<tbl_Rx> tbl_Rx { get; set; }
+        public virtual DbSet<tbl_RxDrop> tbl_RxDrop { get; set; }
+        public virtual DbSet<tbl_RxDrug> tbl_RxDrug { get; set; }
+        public virtual DbSet<tbl_RxInvestigation> tbl_RxInvestigation { get; set; }
     }
 }
