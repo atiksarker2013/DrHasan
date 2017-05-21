@@ -1102,8 +1102,8 @@
     <Content Include="Views\MajorArea\Edit.cshtml" />
     <Content Include="Views\MajorArea\Index.cshtml" />
     <Content Include="Views\Rx\Create.cshtml" />
-    <Content Include="Views\Rx\_PartialPrescribeDrug.cshtml" />
-    <Content Include="Views\Rx\_PartialPrescribeDrop.cshtml" />
+    <Content Include="Views\Shared\_PartialPrescribeDrug.cshtml" />
+    <Content Include="Views\Shared\_PartialPrescribeDrop.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

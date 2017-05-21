@@ -1,6 +1,6 @@
 ﻿
 
-@model Hasan.App.Models.PrescriptionDrop
+@model Hasan.App.Models.Prescription
 
 
 <script src="~/Scripts/scStateCity.js"></script>
@@ -18,7 +18,7 @@
     function Add() {
         {
             var targetDiv = '#divPrescribeDropDetails';
-            var url = "/Rx/AddDrug";
+            var url = "/Rx/AddDrop";
             var form = $('#divPrescribeDropDetails');
             var serializedForm = form.serialize();
             $.post(url, serializedForm, function (result) { $(targetDiv).html(result); }, "html");
@@ -34,7 +34,7 @@
         $("#refRowIndex").val(row);
         var form = $("#divPrescribeDropDetails");
         var serializedForm = form.serialize();
-        var url = "/Rx/RemoveDrug";
+        var url = "/Rx/RemoveDrop";
         $.post(url, serializedForm, function (result) {
             $("#divPrescribeDropDetails").html(result);
         }, "html");
