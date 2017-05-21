@@ -30,7 +30,7 @@
         }
         var row = $(ctrl).parent().parent().parent().children().index($(ctrl).parent().parent());
            //alert(row);
-        $("#refRowIndex").val(row);
+        $("#drugRefRowIndex").val(row);
         var form = $("#frmPrescribeDrugDetails");
         var serializedForm = form.serialize();
         var url = "/Rx/RemoveDrug";
@@ -42,7 +42,7 @@
 </script>  
 
 <form id="frmPrescribeDrugDetails">
-    <input type="hidden" id="refRowIndex" name="refRowIndex" />  
+    <input type="hidden" id="drugRefRowIndex" name="drugRefRowIndex" />  
     <div class="row">
         <div class="panel panel-default ">
 

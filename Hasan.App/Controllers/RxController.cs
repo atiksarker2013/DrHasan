@@ -39,7 +39,7 @@ namespace Hasan.App.Controllers
 
         public ActionResult RemoveDrug(Prescription model, FormCollection collection)
         {
-            int rowIndex = int.Parse(collection.Get("refRowIndex"));
+            int rowIndex = int.Parse(collection.Get("drugRefRowIndex"));
             model.RxDrugList.RemoveAt(rowIndex - 1);
             ModelState.Clear();
             return PartialView("_PartialPrescribeDrug", model);
