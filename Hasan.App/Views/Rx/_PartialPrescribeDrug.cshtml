@@ -3,13 +3,22 @@
 
 
 <script src="~/Scripts/scStateCity.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $('#example2').dataTable();
+
+    });
+</script>
 <script>
 
     function Add() {
         {
-            var targetDiv = '#divStudentDetails';
+            var targetDiv = '#divPrescribeDrugDetails';
             var url = "/Rx/AddDrug";
-            var form = $('#frmStudentDetails');
+            var form = $('#frmPrescribeDrugDetails');
             var serializedForm = form.serialize();
             $.post(url, serializedForm, function (result) { $(targetDiv).html(result); }, "html");
             return false;
@@ -22,23 +31,23 @@
         var row = $(ctrl).parent().parent().parent().children().index($(ctrl).parent().parent());
            //alert(row);
         $("#refRowIndex").val(row);
-        var form = $("#frmStudentDetails");
+        var form = $("#frmPrescribeDrugDetails");
         var serializedForm = form.serialize();
         var url = "/Rx/RemoveDrug";
         $.post(url, serializedForm, function (result) {
-            $("#divStudentDetails").html(result);
+            $("#divPrescribeDrugDetails").html(result);
         }, "html");
         return false;
     }
 </script>  
 
-<form id="frmStudentDetails">
+<form id="frmPrescribeDrugDetails">
     <input type="hidden" id="refRowIndex" name="refRowIndex" />  
     <div class="row">
         <div class="panel panel-default ">
 
             <div class="panel-heading">Prescribe Drug</div>
-            <div class="panel-body" id="divStudentDetails">
+            <div class="panel-body" id="divPrescribeDrugDetails">
                 <div class="form-horizontal">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -81,35 +90,42 @@
                 </div>
             </div>
 
-            <table class="table">
-                <tr>
-                    <th>
-                        Drug Name
-                    </th>
-                    <th>
-                        Instruction
-                    </th>
-                    
-                    <th>
-                        Remove Drug
-                    </th>
-                </tr>
-                @for (int i = 0; i < Model.RxDrugList.Count(); i++)
-                {
+            <table class="table table-bordered" >
+                <thead>
                     <tr>
-                        <td>
-                            @Html.EditorFor(m => m.RxDrugList[i].DrugName)
-                        </td>
-                         
-                        <td>
-                            @Html.EditorFor(m => m.RxDrugList[i].Instruction)
-                        </td>
-                        <td>
-                            <input value="Remove" type="button" onclick="return Remove(this);" />
-                        </td>
+                        <th>
+                            Drug Name
+                        </th>
+                        <th>
+                            Drug Instruction
+                        </th>
+
+                        <th>
+                            Remove Drug
+                        </th>
                     </tr>
-                }
-            </table>  
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.RxDrugList.Count(); i++)
+                    {
+                        <tr>
+                            <td>
+                                @Html.TextBoxFor(m => m.RxDrugList[i].DrugName)
+                            </td>
+
+                            <td>
+                                @Html.EditorFor(m => m.RxDrugList[i].Instruction)
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-default" onclick="return Remove(this);">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </button>
+                                 
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+</table>  
 
 
         </div>
