@@ -59,7 +59,7 @@ namespace Hasan.App.Controllers
         public ActionResult RemoveDrop(Prescription model, FormCollection collection)
         {
             int rowIndex = int.Parse(collection.Get("refRowIndex"));
-            model.RxDrugList.RemoveAt(rowIndex - 1);
+            model.RxDropList.RemoveAt(rowIndex - 1);
             ModelState.Clear();
             return PartialView("_PartialPrescribeDrop", model);
         }

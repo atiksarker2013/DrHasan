@@ -224,6 +224,7 @@
     </Compile>
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Prescription.cs" />
+    <Compile Include="Models\PrescriptionDrop.cs" />
     <Compile Include="Models\RxDrop.cs" />
     <Compile Include="Models\RxDrug.cs" />
     <Compile Include="Models\RxInvestigation.cs" />
