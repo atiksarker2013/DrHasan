@@ -24,7 +24,7 @@
             return false;
         }
     }
-    function Remove(ctrl) {
+    function RemoveDrug(ctrl) {
         if (confirm('Pressing OK will delete this record. Do you want to continue?') == false) {
             return false;
         }
@@ -47,7 +47,7 @@
         <div class="panel panel-default ">
 
             <div class="panel-heading">Prescribe Drug Information</div>
-            <div class="panel-body" id="divPrescribeDrugDetails">
+            <div class="panel-body" >
                 <div class="form-horizontal">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -117,7 +117,7 @@
                                 @Html.EditorFor(m => m.RxDrugList[i].Instruction)
                             </td>
                             <td>
-                                <button type="button" class="btn btn-default" onclick="return Remove(this);">
+                                <button type="button" class="btn btn-default" onclick="return RemoveDrug(this);">
                                     <i class="glyphicon glyphicon-remove"></i>
                                 </button>
                                  

@@ -12,6 +12,8 @@ namespace Hasan.App.Models
         public Nullable<int> InvestigationId { get; set; }
         public string Instruction { get; set; }
 
+        public string InvestigationName { get; set; }
+
         public virtual tbl_Investigation tbl_Investigation { get; set; }
         public virtual tbl_Rx tbl_Rx { get; set; }
     }

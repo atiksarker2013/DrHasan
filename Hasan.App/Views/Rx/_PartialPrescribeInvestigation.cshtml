@@ -1,51 +1,52 @@
 ﻿
 @model Hasan.App.Models.Prescription
 
-<script src="~/Scripts/scStateCity.js"></script>
+@*<script src="~/Scripts/scStateCity.js"></script>*@
+
 <script>
 
-   function AddDrop() {
+    function AddInvestigation() {
      {
-         var targetDiv = '#divPrescribeDropDetails';
-       var url = "/Rx/AddDrop";
-       var form = $('#frmPrescribeDropDetails');
+         var targetDiv = '#divPrescribeInvestigationDetails';
+         var url = "/Rx/AddInvestigation";
+       var form = $('#frmPrescribeInvestigationDetails');
        var serializedForm = form.serialize();
        $.post(url, serializedForm, function (result) { $(targetDiv).html(result); }, "html");
        return false;
      }
    }
-   function RemoveDrop(ctrl) {
+   function RemoveInvestigation(ctrl) {
      if (confirm('Pressing OK will delete this record. Do you want to continue?') == false) {
        return false;
      }
      var row = $(ctrl).parent().parent().parent().children().index($(ctrl).parent().parent());
  //    alert(row);
-     $("#dropRefRowIndex").val(row);
-     var form = $("#frmPrescribeDropDetails");
+     $("#investigationRefRowIndex").val(row);
+     var form = $("#frmPrescribeInvestigationDetails");
      var serializedForm = form.serialize();
-     var url = "/Rx/RemoveDrop";
+     var url = "/Rx/RemoveInvestigation";
      $.post(url, serializedForm, function (result) {
-         $("#divPrescribeDropDetails").html(result);
+         $("#divPrescribeInvestigationDetails").html(result);
      }, "html");
      return false;
    }
 </script>
 
-<form id="frmPrescribeDropDetails">
-    <input type="hidden" id="dropRefRowIndex" name="dropRefRowIndex" />
+<form id="frmPrescribeInvestigationDetails">
+    <input type="hidden" id="investigationRefRowIndex" name="investigationRefRowIndex" />
     <div class="row">
         <div class="panel panel-default ">
 
-            <div class="panel-heading">Prescribe Drop Information</div>
-            <div class="panel-body" >
+            <div class="panel-heading">Prescribe Investigation Information</div>
+            <div class="panel-body">
                 <div class="form-horizontal">
                     <div class="col-md-6">
                         <div class="form-group">
-                            @Html.LabelFor(model => model.DropName, htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.InvestigationName, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.DropName, new { htmlAttributes = new { id = "DropName", @class = "form-control" } })
-                                @Html.HiddenFor(model => model.DropId, new { id = "DropId" })
-                                @Html.ValidationMessageFor(model => model.DropId, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.InvestigationName, new { htmlAttributes = new { id = "InvestigationName", @class = "form-control" } })
+                                @Html.HiddenFor(model => model.InvestigationId, new { id = "InvestigationId" })
+                                @Html.ValidationMessageFor(model => model.InvestigationId, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-2">
                                 <button type="button" class="btn btn-default" onclick="window.open('@Url.Action("Create", "tbl_Patient", new { target="_blank" })')">
@@ -57,23 +58,18 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            @Html.LabelFor(model => model.DropNote, htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.InvestigationNote, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.DropNote, new { htmlAttributes = new { id = "DropNote", @class = "form-control" } })
+                                @Html.EditorFor(model => model.InvestigationNote, new { htmlAttributes = new { id = "InvestigationNote", @class = "form-control" } })
                             </div>
 
                             <div class="col-md-2">
-                                <button type="button" class="btn btn-default" onclick="return AddDrop();">
+                                <button type="button" class="btn btn-default" onclick="return AddInvestigation();">
                                     <i class="glyphicon glyphicon-ok-circle"></i>
                                 </button>
                             </div>
 
                         </div>
-
-
-
-
-
 
                     </div>
 
@@ -84,30 +80,30 @@
                 <thead>
                     <tr>
                         <th>
-                            Drop Name
+                            Investigation Name
                         </th>
                         <th>
-                            Drop Instruction
+                            Investigation Instruction
                         </th>
 
                         <th>
-                            Remove Drop
+                            Remove Investigation
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @for (int i = 0; i < Model.RxDropList.Count(); i++)
+                    @for (int i = 0; i < Model.RxInvestigationList.Count(); i++)
                     {
                         <tr>
                             <td>
-                                @Html.TextBoxFor(m => m.RxDropList[i].DropName)
+                                @Html.TextBoxFor(m => m.RxInvestigationList[i].InvestigationName)
                             </td>
 
                             <td>
-                                @Html.EditorFor(m => m.RxDropList[i].Instruction)
+                                @Html.EditorFor(m => m.RxInvestigationList[i].Instruction)
                             </td>
                             <td>
-                                <button type="button" class="btn btn-default" onclick="return RemoveDrop(this);">
+                                <button type="button" class="btn btn-default" onclick="return RemoveInvestigation(this);">
                                     <i class="glyphicon glyphicon-remove"></i>
                                 </button>
 
