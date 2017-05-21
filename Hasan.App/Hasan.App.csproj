@@ -1104,7 +1104,6 @@
     <Content Include="Views\Rx\Create.cshtml" />
     <Content Include="Views\Rx\_PartialPrescribeDrug.cshtml" />
     <Content Include="Views\Rx\_PartialPrescribeDrop.cshtml" />
-    <Content Include="Views\Rx\_PartialDropPrescribe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

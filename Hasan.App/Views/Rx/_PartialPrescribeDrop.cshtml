@@ -1,54 +1,42 @@
 ﻿
-
 @model Hasan.App.Models.Prescription
 
-
-<script src="~/Scripts/scStateCity.js"></script>
-
-<script type="text/javascript">
-
-    $(function () {
-
-        $('#example2').dataTable();
-
-    });
-</script>
 <script>
 
-    function Add() {
-        {
-            var targetDiv = '#divPrescribeDropDetails';
-            var url = "/Rx/AddDrop";
-            var form = $('#divPrescribeDropDetails');
-            var serializedForm = form.serialize();
-            $.post(url, serializedForm, function (result) { $(targetDiv).html(result); }, "html");
-            return false;
-        }
-    }
-    function Remove(ctrl) {
-        if (confirm('Pressing OK will delete this record. Do you want to continue?') == false) {
-            return false;
-        }
-        var row = $(ctrl).parent().parent().parent().children().index($(ctrl).parent().parent());
-           //alert(row);
-        $("#refRowIndex").val(row);
-        var form = $("#divPrescribeDropDetails");
-        var serializedForm = form.serialize();
-        var url = "/Rx/RemoveDrop";
-        $.post(url, serializedForm, function (result) {
-            $("#divPrescribeDropDetails").html(result);
-        }, "html");
-        return false;
-    }
+   function Add() {
+     {
+         var targetDiv = '#divPrescribeDropDetails';
+       var url = "/Rx/AddDrop";
+       var form = $('#frmPrescribeDropDetails');
+       var serializedForm = form.serialize();
+       $.post(url, serializedForm, function (result) { $(targetDiv).html(result); }, "html");
+       return false;
+     }
+   }
+   function Remove(ctrl) {
+     if (confirm('Pressing OK will delete this record. Do you want to continue?') == false) {
+       return false;
+     }
+     var row = $(ctrl).parent().parent().parent().children().index($(ctrl).parent().parent());
+ //    alert(row);
+     $("#refRowIndex").val(row);
+     var form = $("#frmPrescribeDropDetails");
+     var serializedForm = form.serialize();
+     var url = "/Rx/RemoveDrop";
+     $.post(url, serializedForm, function (result) {
+         $("#divPrescribeDropDetails").html(result);
+     }, "html");
+     return false;
+   }
 </script>
 
-<form id="divPrescribeDropDetails">
+<form id="frmPrescribeDropDetails">
     <input type="hidden" id="refRowIndex" name="refRowIndex" />
     <div class="row">
         <div class="panel panel-default ">
 
             <div class="panel-heading">Prescribe Drop Information</div>
-            <div class="panel-body" id="divPrescribeDropDetails">
+            <div class="panel-body" >
                 <div class="form-horizontal">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -129,4 +117,5 @@
             </table>
         </div>
     </div>
-</form>  
+</form>
+
