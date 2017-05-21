@@ -35,16 +35,27 @@ namespace Hasan.App.Models
         public string Sex { get; set; }
 
        
-        [Required(ErrorMessage = "Drug Id is required")]
+        //[Required(ErrorMessage = "Drug Id is required")]
         public Nullable<int> DrugId { get; set; }
 
         [Display(Name = "Drug Name*")]
-        [Required(ErrorMessage = "Drug Name is required")]
+       // [Required(ErrorMessage = "Drug Name is required")]
         public string DrugName { get; set; }
 
         [Display(Name = "Drug Note*")]
-        [Required(ErrorMessage = "Drug Note is required")]
+        //[Required(ErrorMessage = "Drug Note is required")]
         public string DrugNote { get; set; }
+
+        //[Required(ErrorMessage = "Drug Id is required")]
+        public Nullable<int> DropId { get; set; }
+
+        [Display(Name = "Drop Name*")]
+        //[Required(ErrorMessage = "Drug Name is required")]
+        public string DropName { get; set; }
+
+        [Display(Name = "Drop Note*")]
+        //[Required(ErrorMessage = "Drug Note is required")]
+        public string DropNote { get; set; }
 
 
 
@@ -64,6 +75,13 @@ namespace Hasan.App.Models
         {
             get { return _rxDrugList; }
             set { _rxDrugList = value; }
+        }
+
+        private List<RxDrop> _rxDropList = new List<RxDrop>();
+        public List<RxDrop> RxDropList
+        {
+            get { return _rxDropList; }
+            set { _rxDropList = value; }
         }
     }
 }

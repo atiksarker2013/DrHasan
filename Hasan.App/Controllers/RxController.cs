@@ -1,6 +1,7 @@
 ﻿using Hasan.App.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,6 +15,7 @@ namespace Hasan.App.Controllers
         {
             Prescription model = new Prescription();
             model.RxDrugList = new List<RxDrug>();
+            model.RxDropList = new List<RxDrop>();
             return View(model);
             
         }
@@ -33,7 +35,6 @@ namespace Hasan.App.Controllers
             obj.Instruction = model.DrugNote;
             model.RxDrugList.Add(obj);
             return PartialView("_PartialPrescribeDrug", model);
-            
         }
 
         public ActionResult RemoveDrug(Prescription model, FormCollection collection)
@@ -43,5 +44,25 @@ namespace Hasan.App.Controllers
             ModelState.Clear();
             return PartialView("_PartialPrescribeDrug", model);
         }
+
+        public ActionResult AddDrop(Prescription model)
+        {
+            RxDrop obj = new RxDrop();
+            obj.Id = model.DrugId ?? 0;
+            obj.DropName = model.DropName;
+            obj.Instruction = model.DropNote;
+            model.RxDropList.Add(obj);
+            return PartialView("_PartialPrescribeDrop", model);
+
+        }
+
+        public ActionResult RemoveDrop(Prescription model, FormCollection collection)
+        {
+            int rowIndex = int.Parse(collection.Get("refRowIndex"));
+            model.RxDrugList.RemoveAt(rowIndex - 1);
+            ModelState.Clear();
+            return PartialView("_PartialPrescribeDrop", model);
+        }
+
     }
 }

@@ -12,6 +12,8 @@ namespace Hasan.App.Models
         public Nullable<int> DropId { get; set; }
         public string Instruction { get; set; }
 
+        public string DropName { get; set; }
+
         public virtual tbl_Drop tbl_Drop { get; set; }
         public virtual tbl_Rx tbl_Rx { get; set; }
     }
