@@ -57,5 +57,13 @@ namespace Hasan.App.Models
 
         public virtual tbl_MajorArea tbl_MajorArea { get; set; }
         public virtual tbl_Patient tbl_Patient { get; set; }
+
+
+        private List<RxDrug> _rxDrugList = new List<RxDrug>();
+        public List<RxDrug> RxDrugList
+        {
+            get { return _rxDrugList; }
+            set { _rxDrugList = value; }
+        }
     }
 }

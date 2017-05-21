@@ -19,6 +19,35 @@
 
 </script>
 
+<script>
+
+    //function Add() {
+    //    {
+    //        var targetDiv = '#divStudentDetails';
+    //        var url = "/Rx/AddStudent";
+    //        var form = $('#frmStudentDetails');
+    //        var serializedForm = form.serialize();
+    //        $.post(url, serializedForm, function (result) { $(targetDiv).html(result); }, "html");
+    //        return false;
+    //    }
+    //}
+    //function Remove(ctrl) {
+    //    if (confirm('Pressing OK will delete this record. Do you want to continue?') == false) {
+    //        return false;
+    //    }
+    //    var row = $(ctrl).parent().parent().parent().children().index($(ctrl).parent().parent());
+    //    //    alert(row);
+    //    $("#refRowIndex").val(row);
+    //    var form = $("#frmStudentDetails");
+    //    var serializedForm = form.serialize();
+    //    var url = "/Student/RemoveStudentDetails";
+    //    $.post(url, serializedForm, function (result) {
+    //        $("#divStudentDetails").html(result);
+    //    }, "html");
+    //    return false;
+    //}
+</script>  
+
 <h2>New Prescription</h2>
 
 <div class="row">
@@ -95,42 +124,66 @@
 
                 </div>
             </div>
+
+          
+
         </div>
         
+       
 
-        <div class="panel-heading">Prescribe Drug</div>
-        <div class="col-md-6">
-            <div class="form-group">
-                @Html.LabelFor(model => model.Mrno, htmlAttributes: new { @class = "control-label col-md-4" })
+     
+
+        @*<div class="panel-heading">Prescribe Drug</div>
+        <div class="panel-body" id="divStudentDetails">
+            <div class="form-horizontal">
                 <div class="col-md-6">
-                    @Html.EditorFor(model => model.Mrno, new { htmlAttributes = new { id = "Mrno", @class = "form-control" } })
-                    @Html.HiddenFor(model => model.PatientId, new { id = "PatientId" })
-                    @Html.ValidationMessageFor(model => model.PatientId, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DrugName, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.DrugName, new { htmlAttributes = new { id = "DrugName", @class = "form-control" } })
+                            @Html.HiddenFor(model => model.DrugId, new { id = "DrugId" })
+                            @Html.ValidationMessageFor(model => model.DrugId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-default" onclick="window.open('@Url.Action("Create", "tbl_Patient", new { target="_blank" })')">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-                    @*@Html.HiddenFor(model => model.JobKey, new { id = "JobKey" })
-                    @Html.HiddenFor(model => model.mess, new { id = "mess" })*@
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DrugNote, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.DrugName, new { htmlAttributes = new { id = "DrugNote", @class = "form-control" } })
+                        </div>
+
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-default" onclick="return Add();">
+                                <i class="glyphicon glyphicon-ok-circle"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                  
+
+
+
+
 
                 </div>
-                <div class="col-md-2">
-                    <button type="button" class="btn btn-default" onclick="window.open('@Url.Action("Create", "tbl_Patient", new { target="_blank" })')">
-                        <i class="fa fa-plus"></i>
-                    </button>
-                </div>
+
             </div>
+        </div>*@
 
-            
+
 
 
 
         </div>
-
-
-        <div class="panel-footer">
-            <input type="submit" value="Save" id="Save" name="Save" class="btn btn-primary" />
-            <a href="@Url.Action("Index", "UserHome")" class="btn btn-primary">Cancel </a>
-
-            @*|| @Html.ActionLink("Back to List", "Index")*@
-        </div>
-    </div>
 </div>
 
+<div id="divStudentDetails">
+    @Html.Partial("_PartialPrescribeDrug")
+</div> 

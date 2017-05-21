@@ -39,5 +39,21 @@ namespace Hasan.App.Controllers
                          }).ToList();
             return Json(users, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult GetDrug(string query)
+        {
+            var users = (from u in db.tbl_Drug
+
+                         where u.Name.ToUpper().Contains(query.ToUpper())
+
+                         orderby u.Name
+                         select new
+                         {
+                             label = u.Name,
+                             value = u.Id,
+                             Name = u.Name 
+                         }).ToList();
+            return Json(users, JsonRequestBehavior.AllowGet);
+        }
     }
 }
