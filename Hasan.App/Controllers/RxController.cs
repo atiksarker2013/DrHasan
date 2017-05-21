@@ -52,7 +52,7 @@ namespace Hasan.App.Controllers
             obj.DropName = model.DropName;
             obj.Instruction = model.DropNote;
             model.RxDropList.Add(obj);
-            return PartialView("_PartialPrescribeDrop", model);
+            return PartialView("_PartialDropPrescribe", model);
 
         }
 
@@ -61,7 +61,7 @@ namespace Hasan.App.Controllers
             int rowIndex = int.Parse(collection.Get("refRowIndex"));
             model.RxDropList.RemoveAt(rowIndex - 1);
             ModelState.Clear();
-            return PartialView("_PartialPrescribeDrop", model);
+            return PartialView("_PartialDropPrescribe", model);
         }
 
     }

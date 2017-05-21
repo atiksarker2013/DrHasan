@@ -1,0 +1,121 @@
+﻿
+@model Hasan.App.Models.Prescription
+
+<script>
+
+   function Add() {
+     {
+       var targetDiv = '#divStudentDetails';
+       var url = "/Rx/AddDrop";
+       var form = $('#frmStudentDetails');
+       var serializedForm = form.serialize();
+       $.post(url, serializedForm, function (result) { $(targetDiv).html(result); }, "html");
+       return false;
+     }
+   }
+   function Remove(ctrl) {
+     if (confirm('Pressing OK will delete this record. Do you want to continue?') == false) {
+       return false;
+     }
+     var row = $(ctrl).parent().parent().parent().children().index($(ctrl).parent().parent());
+ //    alert(row);
+     $("#refRowIndex").val(row);
+     var form = $("#frmStudentDetails");
+     var serializedForm = form.serialize();
+     var url = "/Rx/RemoveDrop";
+     $.post(url, serializedForm, function (result) {
+       $("#divStudentDetails").html(result);
+     }, "html");
+     return false;
+   }
+</script>
+
+<form id="frmStudentDetails">
+    <input type="hidden" id="refRowIndex" name="refRowIndex" />
+    <div class="row">
+        <div class="panel panel-default ">
+
+            <div class="panel-heading">Prescribe Drop Information</div>
+            <div class="panel-body" id="divPrescribeDropDetails">
+                <div class="form-horizontal">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DropName, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.DropName, new { htmlAttributes = new { id = "DropName", @class = "form-control" } })
+                                @Html.HiddenFor(model => model.DropId, new { id = "DropId" })
+                                @Html.ValidationMessageFor(model => model.DropId, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-default" onclick="window.open('@Url.Action("Create", "tbl_Patient", new { target="_blank" })')">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DropNote, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.DropNote, new { htmlAttributes = new { id = "DropNote", @class = "form-control" } })
+                            </div>
+
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-default" onclick="return Add();">
+                                    <i class="glyphicon glyphicon-ok-circle"></i>
+                                </button>
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Drop Name
+                        </th>
+                        <th>
+                            Drop Instruction
+                        </th>
+
+                        <th>
+                            Remove Drop
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.RxDropList.Count(); i++)
+                    {
+                        <tr>
+                            <td>
+                                @Html.TextBoxFor(m => m.RxDropList[i].DropName)
+                            </td>
+
+                            <td>
+                                @Html.EditorFor(m => m.RxDropList[i].Instruction)
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-default" onclick="return Remove(this);">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </button>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>  
+
