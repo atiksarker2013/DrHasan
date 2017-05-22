@@ -18,6 +18,9 @@ namespace Hasan.App.Controllers
             model.RxDropList = new List<RxDrop>();
             model.RxInvestigationList = new List<RxInvestigation>();
             return View(model);
+
+
+
             
         }
 
