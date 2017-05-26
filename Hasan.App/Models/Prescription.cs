@@ -75,8 +75,18 @@ namespace Hasan.App.Models
 
 
         public Nullable<int> MajorAreaId { get; set; }
+
+
+        [Display(Name = "Major Area*")]
+        public string MajorAreaName { get; set; }
+
+
+        [Display(Name = "Rx*")]
         public string Rx { get; set; }
         public Nullable<int> PatientId { get; set; }
+
+        [Display(Name = "Next Visit*")]
+        [Required(ErrorMessage = "Drug Id is required")]
         public string NextVisit { get; set; }
         public Nullable<System.DateTime> EntryDate { get; set; }
 

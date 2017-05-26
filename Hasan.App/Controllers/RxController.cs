@@ -10,13 +10,18 @@ namespace Hasan.App.Controllers
 {
     public class RxController : Controller
     {
-
+        HasanHoutoneEntities db = new HasanHoutoneEntities();
         public ActionResult Create()
         {
             Prescription model = new Prescription();
             model.RxDrugList = new List<RxDrug>();
             model.RxDropList = new List<RxDrop>();
             model.RxInvestigationList = new List<RxInvestigation>();
+
+            var MajorAreaList = (from x in db.tbl_MajorArea
+                                 select x).OrderBy(m => m.Name);
+            ViewBag.MajorAreaId = new SelectList(MajorAreaList.ToList(), "Id", "Name");
+
             return View(model);
 
 
