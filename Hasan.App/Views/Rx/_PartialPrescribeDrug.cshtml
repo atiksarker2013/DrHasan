@@ -29,8 +29,9 @@
             return false;
         }
         var row = $(ctrl).parent().parent().parent().children().index($(ctrl).parent().parent());
-           //alert(row);
-        $("#drugRefRowIndex").val(row);
+       
+        document.getElementById('RemoveDrugId').value = row;
+        $("#refRowIndex").val(row);
         var form = $("#frmPrescribeDrugDetails");
         var serializedForm = form.serialize();
         var url = "/Rx/RemoveDrug";
@@ -42,7 +43,8 @@
 </script>  
 
 <form id="frmPrescribeDrugDetails">
-    <input type="hidden" id="drugRefRowIndex" name="drugRefRowIndex" />  
+    <input type="hidden" id="refRowIndex" name="refRowIndex" />
+    @Html.HiddenFor(m => m.RemoveDrugId)
     <div class="row">
         <div class="panel panel-default ">
 
@@ -120,6 +122,7 @@
                                 <button type="button" class="btn btn-default" onclick="return RemoveDrug(this);">
                                     <i class="glyphicon glyphicon-remove"></i>
                                 </button>
+                                @*<input value="Remove" type="button" onclick="return RemoveDrug(this);" />*@ 
                                  
                             </td>
                         </tr>

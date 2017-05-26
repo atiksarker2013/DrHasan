@@ -22,6 +22,8 @@
      var row = $(ctrl).parent().parent().parent().children().index($(ctrl).parent().parent());
  //    alert(row);
      $("#investigationRefRowIndex").val(row);
+     document.getElementById('RemoveInvestigationId').value = row;
+
      var form = $("#frmPrescribeInvestigationDetails");
      var serializedForm = form.serialize();
      var url = "/Rx/RemoveInvestigation";
@@ -33,6 +35,7 @@
 </script>
 
 <form id="frmPrescribeInvestigationDetails">
+    @Html.HiddenFor(m => m.RemoveInvestigationId)
     <input type="hidden" id="investigationRefRowIndex" name="investigationRefRowIndex" />
     <div class="row">
         <div class="panel panel-default ">

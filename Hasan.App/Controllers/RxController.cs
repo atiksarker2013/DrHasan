@@ -43,8 +43,9 @@ namespace Hasan.App.Controllers
 
         public ActionResult RemoveDrug(Prescription model, FormCollection collection)
         {
-            int rowIndex = int.Parse(collection.Get("drugRefRowIndex"));
-            model.RxDrugList.RemoveAt(rowIndex - 1);
+            string RemoveDrugId = Convert.ToString(collection["RemoveDrugId"]);
+            int rowIndex = int.Parse(collection.Get("RemoveDrugId"));
+            model.RxDrugList.RemoveAt(rowIndex);
             ModelState.Clear();
             return PartialView("_PartialPrescribeDrug", model);
         }
@@ -62,8 +63,10 @@ namespace Hasan.App.Controllers
 
         public ActionResult RemoveDrop(Prescription model, FormCollection collection)
         {
-            int rowIndex = int.Parse(collection.Get("dropRefRowIndex"));
-            model.RxDropList.RemoveAt(rowIndex - 1);
+            //int rowIndex = int.Parse(collection.Get("dropRefRowIndex"));
+            string RemoveDrugId = Convert.ToString(collection["RemoveDropId"]);
+            int rowIndex = int.Parse(collection.Get("RemoveDropId"));
+            model.RxDropList.RemoveAt(rowIndex);
             ModelState.Clear();
             return PartialView("_PartialPrescribeDrop", model);
         }
@@ -82,8 +85,9 @@ namespace Hasan.App.Controllers
 
         public ActionResult RemoveInvestigation(Prescription model, FormCollection collection)
         {
-            int rowIndex = int.Parse(collection.Get("investigationRefRowIndex"));
-            model.RxDropList.RemoveAt(rowIndex - 1);
+            string RemoveDrugId = Convert.ToString(collection["RemoveInvestigationId"]);
+            int rowIndex = int.Parse(collection.Get("RemoveInvestigationId"));
+            model.RxInvestigationList.RemoveAt(rowIndex);
             ModelState.Clear();
             return PartialView("_PartialPrescribeInvestigation", model);
         }

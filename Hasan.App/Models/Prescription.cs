@@ -46,7 +46,9 @@ namespace Hasan.App.Models
         //[Required(ErrorMessage = "Drug Note is required")]
         public string DrugNote { get; set; }
 
-         
+        public string RemoveDrugId { get; set; }
+
+
         public Nullable<int> DropId { get; set; }
 
         [Display(Name = "Drop Name*")]
@@ -55,6 +57,8 @@ namespace Hasan.App.Models
         [Display(Name = "Drop Note*")]
         public string DropNote { get; set; }
 
+        public string RemoveDropId { get; set; }
+
         public Nullable<int> InvestigationId { get; set; }
 
         [Display(Name = "Investigation Name")]
@@ -62,6 +66,10 @@ namespace Hasan.App.Models
 
         [Display(Name = "Investigation Note*")]
         public string InvestigationNote { get; set; }
+
+        public string RemoveInvestigationId { get; set; }
+
+
 
 
 

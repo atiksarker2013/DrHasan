@@ -19,6 +19,7 @@
        return false;
      }
      var row = $(ctrl).parent().parent().parent().children().index($(ctrl).parent().parent());
+     document.getElementById('RemoveDropId').value = row;
  //    alert(row);
      $("#dropRefRowIndex").val(row);
      var form = $("#frmPrescribeDropDetails");
@@ -32,6 +33,7 @@
 </script>
 
 <form id="frmPrescribeDropDetails">
+    @Html.HiddenFor(m => m.RemoveDropId)
     <input type="hidden" id="dropRefRowIndex" name="dropRefRowIndex" />
     <div class="row">
         <div class="panel panel-default ">
