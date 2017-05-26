@@ -10,5 +10,7 @@ namespace Hasan.App.Models
         public int flag { get; set; }
         public Guid? key { get; set; }
         public string mess { get; set; }
+
+        public int Pkey { get; set; }
     }
 }

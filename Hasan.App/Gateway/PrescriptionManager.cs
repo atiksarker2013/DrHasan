@@ -25,6 +25,46 @@ namespace Hasan.App.Gateway
                 ent.EntryDate = DateTime.Now;
                 db.tbl_Rx.Add(ent);
                 db.SaveChanges();
+
+                model.Pkey = ent.Id;
+
+                foreach (var drug in GlobalClass.DragList)
+                {
+                    tbl_RxDrug drugEnt = new tbl_RxDrug();
+                    drugEnt.DrugId = drug.DrugId;
+                    drugEnt.RxId = model.Pkey;
+                    drugEnt.Instruction = drug.Instruction;
+
+                    db.tbl_RxDrug.Add(drugEnt);
+                    db.SaveChanges();
+                }
+
+                foreach (var drop in GlobalClass.DropList)
+                {
+                    tbl_RxDrop dropEnt = new tbl_RxDrop();
+                    dropEnt.DropId = drop.DropId;
+                    dropEnt.RxId = model.Pkey;
+                    dropEnt.Instruction = drop.Instruction;
+
+                    db.tbl_RxDrop.Add(dropEnt);
+                    db.SaveChanges();
+
+                }
+
+                foreach (var invest in GlobalClass.InvestigationList)
+                {
+                    tbl_RxInvestigation investEnt = new tbl_RxInvestigation();
+                    investEnt.InvestigationId = invest.InvestigationId;
+                    investEnt.RxId = model.Pkey;
+                    investEnt.Instruction = invest.Instruction;
+
+                    db.tbl_RxInvestigation.Add(investEnt);
+                    db.SaveChanges();
+
+                }
+
+
+
                 model.flag = 1;
                 model.mess = "Data has been saved successfully.";
                // model.key = ent.Id;
