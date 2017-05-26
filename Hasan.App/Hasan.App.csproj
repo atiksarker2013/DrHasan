@@ -182,6 +182,7 @@
     <Compile Include="Controllers\tbl_DrugController.cs" />
     <Compile Include="Controllers\tbl_InvestigationController.cs" />
     <Compile Include="Controllers\tbl_PatientController.cs" />
+    <Compile Include="Controllers\tbl_RxController.cs" />
     <Compile Include="Controllers\UsergrpController.cs" />
     <Compile Include="Controllers\UserHomeController.cs" />
     <Compile Include="Gateway\PrescriptionManager.cs" />
@@ -1107,6 +1108,11 @@
     <Content Include="Views\Rx\_PartialPrescribeDrug.cshtml" />
     <Content Include="Views\Rx\_PartialPrescribeDrop.cshtml" />
     <Content Include="Views\Rx\_PartialPrescribeInvestigation.cshtml" />
+    <Content Include="Views\tbl_Rx\Create.cshtml" />
+    <Content Include="Views\tbl_Rx\Delete.cshtml" />
+    <Content Include="Views\tbl_Rx\Details.cshtml" />
+    <Content Include="Views\tbl_Rx\Edit.cshtml" />
+    <Content Include="Views\tbl_Rx\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
