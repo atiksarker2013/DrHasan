@@ -69,11 +69,6 @@ namespace Hasan.App.Models
 
         public string RemoveInvestigationId { get; set; }
 
-
-
-
-
-
         public Nullable<int> MajorAreaId { get; set; }
 
 

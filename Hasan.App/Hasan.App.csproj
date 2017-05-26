@@ -184,6 +184,7 @@
     <Compile Include="Controllers\tbl_PatientController.cs" />
     <Compile Include="Controllers\UsergrpController.cs" />
     <Compile Include="Controllers\UserHomeController.cs" />
+    <Compile Include="Gateway\PrescriptionManager.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -198,6 +199,7 @@
     <Compile Include="Models\CompanyModule.cs">
       <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataReturn.cs" />
     <Compile Include="Models\Forms.cs">
       <DependentUpon>HasanHoustoneModel.tt</DependentUpon>
     </Compile>

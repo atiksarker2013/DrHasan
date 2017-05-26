@@ -1,4 +1,5 @@
-﻿using Hasan.App.Models;
+﻿using Hasan.App.Gateway;
+using Hasan.App.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,22 +12,42 @@ namespace Hasan.App.Controllers
     public class RxController : Controller
     {
         HasanHoutoneEntities db = new HasanHoutoneEntities();
+        PrescriptionManager manage = new PrescriptionManager();
         public ActionResult Create()
         {
             Prescription model = new Prescription();
             model.RxDrugList = new List<RxDrug>();
             model.RxDropList = new List<RxDrop>();
             model.RxInvestigationList = new List<RxInvestigation>();
-
             var MajorAreaList = (from x in db.tbl_MajorArea
                                  select x).OrderBy(m => m.Name);
             ViewBag.MajorAreaId = new SelectList(MajorAreaList.ToList(), "Id", "Name");
-
             return View(model);
+        }
 
+        [HttpPost]
+        //[HttpPost, ValidateInput(false)]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(Prescription model)
+        {
+            if (GlobalClass.SystemSession)
+            {
+                ViewBag.mess = "Customer Configuration";
+                if (ModelState.IsValid)
+                {
 
-
-            
+                    DataReturn data = manage.SaveMainData(model);
+                    ViewBag.mess = data.mess;
+                    if (data.flag == 1)
+                        return RedirectToAction("EditCustomer", new { id = data.key });
+                }
+                return View(model);
+            }
+            else
+            {
+                Exception e = new Exception("Sorry, your Session has Expired");
+                return View("Error", new HandleErrorInfo(e, "UserHome", "Logout"));
+            }
         }
 
         // GET: Rx
@@ -43,6 +64,10 @@ namespace Hasan.App.Controllers
             obj.DrugName = model.DrugName;
             obj.Instruction = model.DrugNote;
             model.RxDrugList.Add(obj);
+
+            GlobalClass.DragList = new List<RxDrug>();
+            GlobalClass.DragList = model.RxDrugList;
+
             return PartialView("_PartialPrescribeDrug", model);
         }
 
@@ -62,6 +87,10 @@ namespace Hasan.App.Controllers
             obj.DropName = model.DropName;
             obj.Instruction = model.DropNote;
             model.RxDropList.Add(obj);
+
+            GlobalClass.DropList = new List<RxDrop>();
+            GlobalClass.DropList = model.RxDropList;
+
             return PartialView("_PartialPrescribeDrop", model);
 
         }
@@ -84,6 +113,8 @@ namespace Hasan.App.Controllers
             obj.InvestigationName = model.InvestigationName;
             obj.Instruction = model.InvestigationNote;
             model.RxInvestigationList.Add(obj);
+            GlobalClass.InvestigationList = new List<RxInvestigation>();
+            GlobalClass.InvestigationList = model.RxInvestigationList;
             return PartialView("_PartialPrescribeInvestigation", model);
 
         }

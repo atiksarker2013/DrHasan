@@ -241,5 +241,70 @@ namespace Hasan.App.Models
                 HttpContext.Current.Session[GlobalClass._GlobalURL] = value;
             }
         }
+
+
+
+
+        static private string _drugList = "DragList";
+        public static List<RxDrug> DragList
+        {
+            get
+            {
+                if (HttpContext.Current.Session[GlobalClass._drugList] == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return (List<RxDrug>)(HttpContext.Current.Session[GlobalClass._drugList]);
+                }
+            }
+            set
+            {
+                HttpContext.Current.Session[GlobalClass._drugList] = value;
+            }
+        }
+
+
+        static private string _dropList = "DropList";
+        public static List<RxDrop> DropList
+        {
+            get
+            {
+                if (HttpContext.Current.Session[GlobalClass._dropList] == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return (List<RxDrop>)(HttpContext.Current.Session[GlobalClass._dropList]);
+                }
+            }
+            set
+            {
+                HttpContext.Current.Session[GlobalClass._dropList] = value;
+            }
+        }
+
+
+        static private string _investigationList = "InvestigationList";
+        public static List<RxInvestigation> InvestigationList
+        {
+            get
+            {
+                if (HttpContext.Current.Session[GlobalClass._investigationList] == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return (List<RxInvestigation>)(HttpContext.Current.Session[GlobalClass._investigationList]);
+                }
+            }
+            set
+            {
+                HttpContext.Current.Session[GlobalClass._investigationList] = value;
+            }
+        }
     }
 }
