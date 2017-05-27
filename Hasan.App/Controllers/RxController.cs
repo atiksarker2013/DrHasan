@@ -83,7 +83,7 @@ namespace Hasan.App.Controllers
         public ActionResult AddDrop(Prescription model)
         {
             RxDrop obj = new RxDrop();
-            obj.Id = model.DrugId ?? 0;
+            obj.Id = model.DropId ?? 0;
             obj.DropName = model.DropName;
             obj.Instruction = model.DropNote;
             model.RxDropList.Add(obj);

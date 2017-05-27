@@ -695,7 +695,7 @@ $(function () {
                 term: extractLast(request.term),
                 success: function (data) {
                     response($.map(data, function (item) {
-                        return { Id: item.Id, Name: item.Name, Address: item.Address, ChiefComplains: item.ChiefComplains, Age: item.Age, Sex: item.Sex, Mrno: item.Mrno, label: item.label, value: item.value};
+                        return {PatientId: item.PatientId,  Id: item.Id, Name: item.Name, Address: item.Address, ChiefComplains: item.ChiefComplains, Age: item.Age, Sex: item.Sex, Mrno: item.Mrno, label: item.label, value: item.value};
                     }))
                 }
             })
@@ -724,6 +724,7 @@ $(function () {
             $("#ChiefComplains").val(ui.item.ChiefComplains);
             $("#Age").val(ui.item.Age);
             $("#Sex").val(ui.item.Sex);
+            $("#PatientId").val(ui.item.PatientId);
             terms.push("");
             this.value = terms.join("");
             return false;

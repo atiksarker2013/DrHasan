@@ -31,7 +31,7 @@ namespace Hasan.App.Gateway
                 foreach (var drug in GlobalClass.DragList)
                 {
                     tbl_RxDrug drugEnt = new tbl_RxDrug();
-                    drugEnt.DrugId = drug.DrugId;
+                    drugEnt.DrugId = drug.Id;
                     drugEnt.RxId = model.Pkey;
                     drugEnt.Instruction = drug.Instruction;
 
@@ -42,7 +42,7 @@ namespace Hasan.App.Gateway
                 foreach (var drop in GlobalClass.DropList)
                 {
                     tbl_RxDrop dropEnt = new tbl_RxDrop();
-                    dropEnt.DropId = drop.DropId;
+                    dropEnt.DropId = drop.Id;
                     dropEnt.RxId = model.Pkey;
                     dropEnt.Instruction = drop.Instruction;
 

@@ -34,7 +34,8 @@ namespace Hasan.App.Controllers
                              ChiefComplains = u.ChiefComplains,
                              Age = u.Age,
                              Sex = u.Sex,
-                             Mrno = u.Mrno
+                             Mrno = u.Mrno,
+                             PatientId = u.Id,
 
                          }).ToList();
             return Json(users, JsonRequestBehavior.AllowGet);
