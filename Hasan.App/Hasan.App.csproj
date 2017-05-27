@@ -823,6 +823,7 @@
     <Content Include="DataScript\2.sql" />
     <Content Include="DataScript\3.sql" />
     <Content Include="DataScript\4.sql" />
+    <Content Include="DataScript\SQL5.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

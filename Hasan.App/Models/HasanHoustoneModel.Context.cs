@@ -34,14 +34,14 @@ namespace Hasan.App.Models
         public virtual DbSet<tbl_Drop> tbl_Drop { get; set; }
         public virtual DbSet<tbl_Drug> tbl_Drug { get; set; }
         public virtual DbSet<tbl_Investigation> tbl_Investigation { get; set; }
-        public virtual DbSet<tbl_Patient> tbl_Patient { get; set; }
-        public virtual DbSet<Usergroup> Usergroup { get; set; }
-        public virtual DbSet<UserGroupForm> UserGroupForm { get; set; }
-        public virtual DbSet<UserGroupModule> UserGroupModule { get; set; }
         public virtual DbSet<tbl_MajorArea> tbl_MajorArea { get; set; }
+        public virtual DbSet<tbl_Patient> tbl_Patient { get; set; }
         public virtual DbSet<tbl_Rx> tbl_Rx { get; set; }
         public virtual DbSet<tbl_RxDrop> tbl_RxDrop { get; set; }
         public virtual DbSet<tbl_RxDrug> tbl_RxDrug { get; set; }
         public virtual DbSet<tbl_RxInvestigation> tbl_RxInvestigation { get; set; }
+        public virtual DbSet<Usergroup> Usergroup { get; set; }
+        public virtual DbSet<UserGroupForm> UserGroupForm { get; set; }
+        public virtual DbSet<UserGroupModule> UserGroupModule { get; set; }
     }
 }
