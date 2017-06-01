@@ -45,7 +45,7 @@
         <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxDrop_tbl_Rx" />
         <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxDrug_tbl_Rx" />
         <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxInvestigation_tbl_Rx" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

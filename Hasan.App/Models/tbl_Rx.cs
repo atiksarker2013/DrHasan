@@ -31,7 +31,7 @@ namespace Hasan.App.Models
         public string VisualAcuityLeftEye { get; set; }
         public Nullable<int> VisualAcuityLeftEyeType { get; set; }
         public string VisualAcuityRightEye { get; set; }
-        public Nullable<int> VisualAcuityRightEyeType { get; set; }
+        public int VisualAcuityRightEyeType { get; set; }
     
         public virtual tbl_MajorArea tbl_MajorArea { get; set; }
         public virtual tbl_Patient tbl_Patient { get; set; }

@@ -141,7 +141,7 @@
           <Property Name="VisualAcuityLeftEye" Type="varchar(max)" />
           <Property Name="VisualAcuityLeftEyeType" Type="int" />
           <Property Name="VisualAcuityRightEye" Type="varchar(max)" />
-          <Property Name="VisualAcuityRightEyeType" Type="int" />
+          <Property Name="VisualAcuityRightEyeType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_RxDrop">
           <Key>
@@ -670,7 +670,7 @@
             <End Role="tbl_Rx" EntitySet="tbl_Rx" />
             <End Role="tbl_RxInvestigation" EntitySet="tbl_RxInvestigation" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="CompanyKey" />
@@ -1098,7 +1098,7 @@
           <Property Name="VisualAcuityLeftEye" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="VisualAcuityLeftEyeType" Type="Int32" />
           <Property Name="VisualAcuityRightEye" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="VisualAcuityRightEyeType" Type="Int32" />
+          <Property Name="VisualAcuityRightEyeType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="tbl_MajorArea" Relationship="HasanHoutoneModel.FK_tbl_Rx_tbl_MajorArea" FromRole="tbl_Rx" ToRole="tbl_MajorArea" />
           <NavigationProperty Name="tbl_Patient" Relationship="HasanHoutoneModel.FK_tbl_Rx_tbl_Patient" FromRole="tbl_Rx" ToRole="tbl_Patient" />
           <NavigationProperty Name="tbl_RxDrop" Relationship="HasanHoutoneModel.FK_tbl_RxDrop_tbl_Rx" FromRole="tbl_Rx" ToRole="tbl_RxDrop" />

@@ -100,7 +100,7 @@ namespace Hasan.App.Gateway
             obj.VisualAcuityLeftEye = cust.VisualAcuityLeftEye;
             obj.VisualAcuityLeftEyeType = cust.VisualAcuityLeftEyeType??0;
             obj.VisualAcuityRightEye = cust.VisualAcuityRightEye;
-            obj.VisualAcuityRightEyeType = cust.VisualAcuityRightEyeType??0;
+            obj.VisualAcuityRightEyeType = cust.VisualAcuityRightEyeType;
 
             obj.RxDrugList = new List<RxDrug>();
             obj.RxDrugList = GetPrescribrDrugList(id);
