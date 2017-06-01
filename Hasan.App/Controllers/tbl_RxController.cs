@@ -7,12 +7,37 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Hasan.App.Models;
+using Hasan.App.Gateway;
 
 namespace Hasan.App.Controllers
 {
     public class tbl_RxController : Controller
     {
+
+
         private HasanHoutoneEntities db = new HasanHoutoneEntities();
+        PrescriptionManager manage = new PrescriptionManager();
+
+
+        public ActionResult PrintPrescriptionFromIndex(int? id)
+        {
+            if (GlobalClass.SystemSession)
+            {
+                int rxid = 0;
+                rxid = id ?? 0;
+                //id = Convert.ToInt32(GlobalClass.RxId);
+                ViewBag.mess = "Prescription";
+                Prescription model = new Prescription();
+                model = manage.FillMainPrescription(rxid);
+                return View(model);
+
+            }
+            else
+            {
+                Exception e = new Exception("Sorry, your Session has Expired");
+                return View("Error", new HandleErrorInfo(e, "UserHome", "Logout"));
+            }
+        }
 
         // GET: tbl_Rx
         public ActionResult Index()

@@ -101,6 +101,27 @@ namespace Hasan.App.Controllers
             }
         }
 
+
+        public ActionResult PrintPrescriptionFromIndex(int? id)
+        {
+            if (GlobalClass.SystemSession)
+            {
+                int rxid = 0;
+                rxid = id??0;
+                //id = Convert.ToInt32(GlobalClass.RxId);
+                ViewBag.mess = "Prescription";
+                Prescription model = new Prescription();
+                model = manage.FillMainPrescription(rxid);
+                return View(model);
+
+            }
+            else
+            {
+                Exception e = new Exception("Sorry, your Session has Expired");
+                return View("Error", new HandleErrorInfo(e, "UserHome", "Logout"));
+            }
+        }
+
         // GET: Rx
         public ActionResult Index()
         {

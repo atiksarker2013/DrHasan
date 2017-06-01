@@ -1126,6 +1126,8 @@
     <Content Include="Views\tbl_VisualAcuityType\Details.cshtml" />
     <Content Include="Views\tbl_VisualAcuityType\Edit.cshtml" />
     <Content Include="Views\tbl_VisualAcuityType\Index.cshtml" />
+    <Content Include="Views\Rx\PrintPrescriptionFromIndex.cshtml" />
+    <Content Include="Views\tbl_Rx\PrintPrescriptionFromIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

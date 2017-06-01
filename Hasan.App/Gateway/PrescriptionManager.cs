@@ -94,6 +94,14 @@ namespace Hasan.App.Gateway
             obj.MajorAreaId = cust.MajorAreaId;
             obj.Rx = cust.Rx;
             obj.PatientId = cust.PatientId;
+
+            obj.Mrno = cust.tbl_Patient.Mrno;
+            obj.Name = cust.tbl_Patient.Name;
+            obj.Address = cust.tbl_Patient.Address;
+            obj.Age = cust.tbl_Patient.Age;
+
+
+
             obj.NextVisit = cust.NextVisit;
             obj.EntryDate = cust.EntryDate;
 
