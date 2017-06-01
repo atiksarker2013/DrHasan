@@ -38,8 +38,7 @@ namespace Hasan.App.Controllers
         }
 
         [HttpPost]
-        //[HttpPost, ValidateInput(false)]
-        //[ValidateAntiForgeryToken]
+       
         public ActionResult Create(Prescription model)
         {
             if (GlobalClass.SystemSession)
@@ -51,8 +50,28 @@ namespace Hasan.App.Controllers
                     DataReturn data = manage.SaveMainData(model);
                     ViewBag.mess = data.mess;
                     if (data.flag == 1)
-                        return RedirectToAction("EditCustomer", new { id = data.key });
+                    {
+                        GlobalClass.RxId = data.Pkey.ToString();
+                        return RedirectToAction("PrintPrescription");
+
+                    }
+                      
                 }
+
+                var MajorAreaList = (from x in db.tbl_MajorArea
+                                     select x).OrderBy(m => m.Name);
+                ViewBag.MajorAreaId = new SelectList(MajorAreaList.ToList(), "Id", "Name");
+
+
+                var VisualAcuityLeftEyeTypeList = (from x in db.tbl_VisualAcuityType
+                                                   select x).OrderBy(m => m.Name);
+                ViewBag.VisualAcuityLeftEyeType = new SelectList(VisualAcuityLeftEyeTypeList.ToList(), "Id", "Name");
+
+
+                var VisualAcuityRightEyeTypeList = (from x in db.tbl_VisualAcuityType
+                                                    select x).OrderBy(m => m.Name);
+                ViewBag.VisualAcuityRightEyeType = new SelectList(VisualAcuityRightEyeTypeList.ToList(), "Id", "Name");
+
                 return View(model);
             }
             else
@@ -63,10 +82,12 @@ namespace Hasan.App.Controllers
         }
 
 
-        public ActionResult PrintPrescription(int id)
+        public ActionResult PrintPrescription()
         {
             if (GlobalClass.SystemSession)
             {
+                int id = 0;
+                id = Convert.ToInt32(GlobalClass.RxId);
                 ViewBag.mess = "Prescription";
                 Prescription model = new Prescription();
                 model = manage.FillMainPrescription(id);

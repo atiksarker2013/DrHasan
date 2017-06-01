@@ -11,27 +11,27 @@ namespace Hasan.App.Models
         public int Id { get; set; }
 
         [Display(Name = "Mrno*")]
-        [Required(ErrorMessage = "Patient Mrno is required")]
+      //  [Required(ErrorMessage = "Patient Mrno is required")]
         public string Mrno { get; set; }
 
         [Display(Name = "Name*")]
-        [Required(ErrorMessage = "Patient Name is required")]
+       // [Required(ErrorMessage = "Patient Name is required")]
         public string Name { get; set; }
 
         [Display(Name = "Address*")]
-        [Required(ErrorMessage = "Patient Address is required")]
+       // [Required(ErrorMessage = "Patient Address is required")]
         public string Address { get; set; }
 
         [Display(Name = "ChiefComplains*")]
-        [Required(ErrorMessage = "Patient ChiefComplains is required")]
+       // [Required(ErrorMessage = "Patient ChiefComplains is required")]
         public string ChiefComplains { get; set; }
 
         [Display(Name = "Age*")]
-        [Required(ErrorMessage = "Patient Age is required")]
+       // [Required(ErrorMessage = "Patient Age is required")]
         public Nullable<int> Age { get; set; }
 
         [Display(Name = "Sex*")]
-        [Required(ErrorMessage = "Patient Sex is required")]
+       // [Required(ErrorMessage = "Patient Sex is required")]
         public string Sex { get; set; }
 
        
@@ -81,7 +81,7 @@ namespace Hasan.App.Models
         public Nullable<int> PatientId { get; set; }
 
         [Display(Name = "Next Visit*")]
-        [Required(ErrorMessage = "Drug Id is required")]
+       // [Required(ErrorMessage = "Drug Id is required")]
         public string NextVisit { get; set; }
         public Nullable<System.DateTime> EntryDate { get; set; }
 

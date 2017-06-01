@@ -132,7 +132,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MajorAreaId" Type="int" />
           <Property Name="Rx" Type="varchar(max)" />
           <Property Name="PatientId" Type="int" />
@@ -141,7 +141,7 @@
           <Property Name="VisualAcuityLeftEye" Type="varchar(max)" />
           <Property Name="VisualAcuityLeftEyeType" Type="int" />
           <Property Name="VisualAcuityRightEye" Type="varchar(max)" />
-          <Property Name="VisualAcuityRightEyeType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VisualAcuityRightEyeType" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_RxDrop">
           <Key>
@@ -1089,7 +1089,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MajorAreaId" Type="Int32" />
           <Property Name="Rx" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PatientId" Type="Int32" />
@@ -1098,7 +1098,7 @@
           <Property Name="VisualAcuityLeftEye" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="VisualAcuityLeftEyeType" Type="Int32" />
           <Property Name="VisualAcuityRightEye" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="VisualAcuityRightEyeType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VisualAcuityRightEyeType" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tbl_MajorArea" Relationship="HasanHoutoneModel.FK_tbl_Rx_tbl_MajorArea" FromRole="tbl_Rx" ToRole="tbl_MajorArea" />
           <NavigationProperty Name="tbl_Patient" Relationship="HasanHoutoneModel.FK_tbl_Rx_tbl_Patient" FromRole="tbl_Rx" ToRole="tbl_Patient" />
           <NavigationProperty Name="tbl_RxDrop" Relationship="HasanHoutoneModel.FK_tbl_RxDrop_tbl_Rx" FromRole="tbl_Rx" ToRole="tbl_RxDrop" />

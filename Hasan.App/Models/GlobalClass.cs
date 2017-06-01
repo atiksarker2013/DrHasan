@@ -306,5 +306,27 @@ namespace Hasan.App.Models
                 HttpContext.Current.Session[GlobalClass._investigationList] = value;
             }
         }
+
+
+
+        static private string _rxId = "RxId";
+        public static string RxId
+        {
+            get
+            {
+                if (HttpContext.Current.Session[GlobalClass._rxId] == null)
+                {
+                    return "";
+                }
+                else
+                {
+                    return (string)(HttpContext.Current.Session[GlobalClass._rxId]);
+                }
+            }
+            set
+            {
+                HttpContext.Current.Session[GlobalClass._rxId] = value;
+            }
+        }
     }
 }
