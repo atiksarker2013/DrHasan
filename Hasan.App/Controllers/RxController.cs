@@ -50,6 +50,24 @@ namespace Hasan.App.Controllers
             }
         }
 
+
+        public ActionResult PrintPrescription(int id)
+        {
+            if (GlobalClass.SystemSession)
+            {
+                ViewBag.mess = "Prescription";
+                Prescription model = new Prescription();
+                model = manage.FillMainPrescription(id);
+                return View(model);
+
+            }
+            else
+            {
+                Exception e = new Exception("Sorry, your Session has Expired");
+                return View("Error", new HandleErrorInfo(e, "UserHome", "Logout"));
+            }
+        }
+
         // GET: Rx
         public ActionResult Index()
         {

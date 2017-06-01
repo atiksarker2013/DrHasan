@@ -67,7 +67,6 @@ namespace Hasan.App.Gateway
 
                 model.flag = 1;
                 model.mess = "Data has been saved successfully.";
-               // model.key = ent.Id;
 
             }
             catch (Exception ex)
@@ -78,6 +77,78 @@ namespace Hasan.App.Gateway
 
 
             return model;
+        }
+
+        public Prescription FillMainPrescription(int id)
+        {
+            Prescription obj = new Prescription();
+            tbl_Rx cust = db.tbl_Rx.Find(id);
+            obj.Id = cust.Id;
+            obj.MajorAreaId = cust.MajorAreaId;
+            obj.Rx = cust.Rx;
+            obj.PatientId = cust.PatientId;
+            obj.NextVisit = cust.NextVisit;
+            obj.EntryDate = cust.EntryDate;
+
+            obj.RxDrugList = new List<RxDrug>();
+            obj.RxDrugList = GetPrescribrDrugList(id);
+
+            obj.RxDropList = new List<RxDrop>();
+            obj.RxDropList = GetPrescribrDropList(id);
+
+            obj.RxInvestigationList = new List<RxInvestigation>();
+            obj.RxInvestigationList = GetPrescribrInvestigationList(id);
+
+            return obj;
+        }
+
+
+        public List<RxDrug> GetPrescribrDrugList(int id)
+        {
+            List<RxDrug> obj = new List<RxDrug>();
+            var temp = from x in db.tbl_RxDrug
+                       where x.RxId == id
+                       select new RxDrug
+                       {
+                           DrugId = x.Id,
+                           DrugName = x.tbl_Drug.Name,
+                           Instruction = x.Instruction,
+                           RxId = x.RxId
+                       };
+            obj = temp.ToList();
+            return obj;
+        }
+
+        public List<RxDrop> GetPrescribrDropList(int id)
+        {
+            List<RxDrop> obj = new List<RxDrop>();
+            var temp = from x in db.tbl_RxDrop
+                       where x.RxId == id
+                       select new RxDrop
+                       {
+                           DropId = x.DropId,
+                           DropName = x.tbl_Drop.Name,
+                           Instruction = x.Instruction,
+                           RxId = x.RxId
+                       };
+            obj = temp.ToList();
+            return obj;
+        }
+
+        public List<RxInvestigation> GetPrescribrInvestigationList(int id)
+        {
+            List<RxInvestigation> obj = new List<RxInvestigation>();
+            var temp = from x in db.tbl_RxInvestigation
+                       where x.RxId == id
+                       select new RxInvestigation
+                       {
+                           InvestigationId = x.InvestigationId,
+                           InvestigationName = x.tbl_Investigation.Name,
+                           Instruction = x.Instruction,
+                           RxId = x.RxId
+                       };
+            obj = temp.ToList();
+            return obj;
         }
     }
 }

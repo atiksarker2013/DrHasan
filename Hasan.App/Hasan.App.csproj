@@ -1114,6 +1114,8 @@
     <Content Include="Views\tbl_Rx\Details.cshtml" />
     <Content Include="Views\tbl_Rx\Edit.cshtml" />
     <Content Include="Views\tbl_Rx\Index.cshtml" />
+    <Content Include="Views\Shared\LayoutPrint.cshtml" />
+    <Content Include="Views\Rx\PrintPrescription.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
