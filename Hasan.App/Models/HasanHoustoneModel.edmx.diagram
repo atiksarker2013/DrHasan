@@ -16,7 +16,6 @@
         <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Investigation" Width="1.5" PointX="3" PointY="9.5" />
         <EntityTypeShape EntityType="HasanHoutoneModel.tbl_MajorArea" Width="1.5" PointX="0.75" PointY="2.5" />
         <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Patient" Width="1.5" PointX="0.75" PointY="5.125" />
-        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Rx" Width="1.5" PointX="3" PointY="4.75" />
         <EntityTypeShape EntityType="HasanHoutoneModel.tbl_RxDrop" Width="1.5" PointX="5.25" PointY="8.25" />
         <EntityTypeShape EntityType="HasanHoutoneModel.tbl_RxDrug" Width="1.5" PointX="5.25" PointY="2.25" />
         <EntityTypeShape EntityType="HasanHoutoneModel.tbl_RxInvestigation" Width="1.5" PointX="5.25" PointY="5.25" />
@@ -37,13 +36,15 @@
         <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxDrop_tbl_Drop" />
         <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxDrug_tbl_Drug" />
         <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxInvestigation_tbl_Investigation" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupForm_Usergroup" />
+        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupModule_Usergroup" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_VisualAcuityType" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HasanHoutoneModel.tbl_Rx" Width="1.5" PointX="3" PointY="4.125" />
         <AssociationConnector Association="HasanHoutoneModel.FK_tbl_Rx_tbl_MajorArea" />
         <AssociationConnector Association="HasanHoutoneModel.FK_tbl_Rx_tbl_Patient" />
         <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxDrop_tbl_Rx" />
         <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxDrug_tbl_Rx" />
         <AssociationConnector Association="HasanHoutoneModel.FK_tbl_RxInvestigation_tbl_Rx" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupForm_Usergroup" />
-        <AssociationConnector Association="HasanHoutoneModel.FK_UserGroupModule_Usergroup" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

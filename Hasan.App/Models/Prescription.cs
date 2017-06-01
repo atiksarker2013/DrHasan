@@ -72,11 +72,11 @@ namespace Hasan.App.Models
         public Nullable<int> MajorAreaId { get; set; }
 
 
-        [Display(Name = "Major Area*")]
+        [Display(Name = "Diagnosis")]
         public string MajorAreaName { get; set; }
 
 
-        [Display(Name = "Rx*")]
+        [Display(Name = "Adv:")]
         public string Rx { get; set; }
         public Nullable<int> PatientId { get; set; }
 
@@ -109,5 +109,17 @@ namespace Hasan.App.Models
             get { return _rxInvestigationList; }
             set { _rxInvestigationList = value; }
         }
+
+
+        [Display(Name = "Left Eye")]
+        public string VisualAcuityLeftEye { get; set; }
+
+        [Display(Name = "Right Eye")]
+        public string VisualAcuityRightEye { get; set; }
+
+       // [Display(Name = "Left Eye")]
+        public int VisualAcuityLeftEyeType { get; set; }
+
+        public int VisualAcuityRightEyeType { get; set; }
     }
 }

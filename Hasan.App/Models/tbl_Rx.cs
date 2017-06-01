@@ -28,6 +28,10 @@ namespace Hasan.App.Models
         public Nullable<int> PatientId { get; set; }
         public string NextVisit { get; set; }
         public Nullable<System.DateTime> EntryDate { get; set; }
+        public string VisualAcuityLeftEye { get; set; }
+        public Nullable<int> VisualAcuityLeftEyeType { get; set; }
+        public string VisualAcuityRightEye { get; set; }
+        public Nullable<int> VisualAcuityRightEyeType { get; set; }
     
         public virtual tbl_MajorArea tbl_MajorArea { get; set; }
         public virtual tbl_Patient tbl_Patient { get; set; }

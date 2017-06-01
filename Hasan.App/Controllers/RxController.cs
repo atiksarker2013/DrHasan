@@ -22,6 +22,18 @@ namespace Hasan.App.Controllers
             var MajorAreaList = (from x in db.tbl_MajorArea
                                  select x).OrderBy(m => m.Name);
             ViewBag.MajorAreaId = new SelectList(MajorAreaList.ToList(), "Id", "Name");
+
+
+            var VisualAcuityLeftEyeTypeList = (from x in db.tbl_VisualAcuityType
+                                 select x).OrderBy(m => m.Name);
+            ViewBag.VisualAcuityLeftEyeType = new SelectList(VisualAcuityLeftEyeTypeList.ToList(), "Id", "Name");
+
+
+            var VisualAcuityRightEyeTypeList = (from x in db.tbl_VisualAcuityType
+                                               select x).OrderBy(m => m.Name);
+            ViewBag.VisualAcuityRightEyeType = new SelectList(VisualAcuityRightEyeTypeList.ToList(), "Id", "Name");
+
+
             return View(model);
         }
 

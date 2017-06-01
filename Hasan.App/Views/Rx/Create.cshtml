@@ -135,6 +135,89 @@ $('#button1').click(function () {
         </div>
 
 
+        <div class="row">
+            <div class="panel panel-default ">
+                <div class="panel-heading">Visual Acuity</div>
+                <div class="panel-body">
+                    <div class="form-horizontal">
+                       
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VisualAcuityLeftEye, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.VisualAcuityLeftEye, new { htmlAttributes = new { id = "VisualAcuityLeftEye", @class = "form-control" } })
+                                    @*@Html.HiddenFor(model => model.PatientId, new { id = "PatientId" })
+                                    @Html.ValidationMessageFor(model => model.PatientId, "", new { @class = "text-danger" })*@
+
+                                </div>
+
+                                <div class="col-md-2">
+                                            @Html.DropDownList("VisualAcuityLeftEyeType", null, htmlAttributes: new { id = "VisualAcuityLeftEyeType", @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.VisualAcuityLeftEyeType, "", new { @class = "text-danger" })
+                                </div>
+                                
+                            </div>
+
+
+                        </div>
+
+                        @*<div class="col-md-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DrugNote, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.DrugNote, new { htmlAttributes = new { id = "DrugNote", @class = "form-control" } })
+                                </div>
+
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-default" onclick="return AddDrug();">
+                                        <i class="glyphicon glyphicon-ok-circle"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+                        </div>*@
+
+
+
+
+
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VisualAcuityRightEye, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.VisualAcuityRightEye, new { htmlAttributes = new { id = "VisualAcuityRightEye", @class = "form-control" } })
+                                </div>
+
+                                <div class="col-md-2">
+                                    @Html.DropDownList("VisualAcuityRightEyeType", null, htmlAttributes: new { id = "VisualAcuityRightEyeType", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.VisualAcuityRightEyeType, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                           
+
+                         
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
         <div id="divPrescribeDrugDetails">
             @Html.Partial("_PartialPrescribeDrug")
 
