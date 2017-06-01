@@ -23,6 +23,13 @@ namespace Hasan.App.Gateway
                 ent.PatientId = prescriptionObj.PatientId;
                 ent.NextVisit = prescriptionObj.NextVisit;
                 ent.EntryDate = DateTime.Now;
+
+                ent.VisualAcuityLeftEye = prescriptionObj.VisualAcuityLeftEye;
+                ent.VisualAcuityLeftEyeType = prescriptionObj.VisualAcuityLeftEyeType;
+                ent.VisualAcuityRightEye = prescriptionObj.VisualAcuityRightEye;
+                ent.VisualAcuityRightEyeType = prescriptionObj.VisualAcuityRightEyeType;
+
+
                 db.tbl_Rx.Add(ent);
                 db.SaveChanges();
 
@@ -89,6 +96,11 @@ namespace Hasan.App.Gateway
             obj.PatientId = cust.PatientId;
             obj.NextVisit = cust.NextVisit;
             obj.EntryDate = cust.EntryDate;
+
+            obj.VisualAcuityLeftEye = cust.VisualAcuityLeftEye;
+            obj.VisualAcuityLeftEyeType = cust.VisualAcuityLeftEyeType??0;
+            obj.VisualAcuityRightEye = cust.VisualAcuityRightEye;
+            obj.VisualAcuityRightEyeType = cust.VisualAcuityRightEyeType??0;
 
             obj.RxDrugList = new List<RxDrug>();
             obj.RxDrugList = GetPrescribrDrugList(id);
