@@ -61,7 +61,7 @@
 </div>
 
 
-<div class="row">
+@*<div class="row">
     <div class="col-xs-12">
 
 
@@ -96,7 +96,191 @@
 
         </div>
     </div>
+</div>*@
+
+<div class="row">
+    <div class="panel panel-default ">
+
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { id = "Name", @class = "form-control" } })
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Age, new { htmlAttributes = new { id = "Age", @class = "form-control" } })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Mrno, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Mrno, new { htmlAttributes = new { id = "Mrno", @class = "form-control" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EntryDate, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.EntryDate, new { htmlAttributes = new { id = "EntryDate", @class = "form-control" } })
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            
+
+            <table   >
+                <tr>
+                    <th>Visual Acuity :</th>
+                </tr>
+                <tr>
+                    <td><h5>Right Eye :</h5></td>
+                    <td><h5>@Html.DisplayFor(m => m.VisualAcuityRightEye)</h5></td>
+                    <td><h5>@Html.DisplayFor(m => m.VisualAcuityRightEyeTypeValue)</h5></td>
+                </tr>
+                <tr>
+                    <td><h5>Left Eye :</h5></td>
+                    <td><h5>@Html.DisplayFor(m => m.VisualAcuityLeftEyeType)</h5></td>
+                    <td><h5>@Html.DisplayFor(m => m.VisualAcuityLeftEyeTypeValue)</h5></td>
+                </tr>
+            </table>
+
+
+            <table>
+                <tr>
+                    <th> Diagnosis :</th>
+                    <td><h5>@Html.DisplayFor(m => m.MajorAreaName)</h5></td>
+                </tr>
+            </table>
+
+
+            <table>
+                <tr>
+                    <th>Adv :</th>
+                    <td><h5>@Html.DisplayFor(m => m.Rx)</h5></td>
+                </tr>
+            </table>
+
+
+            <table>
+                <tr>
+                    <th>Investigation :</th>
+                </tr>
+                @{int rowNo = 0;}
+@for (int i = 0; i < Model.RxInvestigationList.Count(); i++)
+{
+                <tr>
+                    <td>@(rowNo += 1)</td>
+                    <td>
+                        @Html.DisplayFor(m => m.RxInvestigationList[i].InvestigationName)
+                    </td>
+                  
+                </tr>
+}
+            </table>
+
+
+
+
+            <table>
+                <tr>
+                    <th>Drug :</th>
+                </tr>
+                @{int rowNoDrug = 0;}
+                @for (int i = 0; i < Model.RxDrugList.Count(); i++)
+                {
+                    <tr>
+                        <td>@(rowNoDrug += 1)</td>
+                        <td>
+                            @Html.DisplayFor(m => m.RxDrugList[i].DrugName)
+                            (@Html.DisplayFor(m => m.RxDrugList[i].Instruction))
+                        </td>
+
+                    </tr>
+                }
+            </table>
+
+
+            <table>
+                <tr>
+                    <th>Drop :</th>
+                </tr>
+                @{int rowNoDrop = 0;}
+                @for (int i = 0; i < Model.RxDropList.Count(); i++)
+                {
+                    <tr>
+                        <td>@(rowNoDrop += 1)</td>
+                        <td>
+                            @Html.DisplayFor(m => m.RxDropList[i].DropName)
+                            (@Html.DisplayFor(m => m.RxDropList[i].Instruction))
+                        </td>
+
+                    </tr>
+                }
+            </table>
+
+
+
+
+        </div>
+
+        @*<table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        Drop Name
+                    </th>
+                    <th>
+                        Drop Instruction
+                    </th>
+
+                    <th>
+                        Remove Drop
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.RxDropList.Count(); i++)
+                {
+                    <tr>
+                        <td>
+                            @Html.TextBoxFor(m => m.RxDropList[i].DropName)
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(m => m.RxDropList[i].Instruction)
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default" onclick="return RemoveDrop(this);">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </button>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>*@
+    </div>
 </div>
+
+
+
+
 
 
 

@@ -92,6 +92,7 @@ namespace Hasan.App.Gateway
             tbl_Rx cust = db.tbl_Rx.Find(id);
             obj.Id = cust.Id;
             obj.MajorAreaId = cust.MajorAreaId;
+            obj.MajorAreaName = cust.tbl_MajorArea.Name;
             obj.Rx = cust.Rx;
             obj.PatientId = cust.PatientId;
 
@@ -109,6 +110,12 @@ namespace Hasan.App.Gateway
             obj.VisualAcuityLeftEyeType = cust.VisualAcuityLeftEyeType??0;
             obj.VisualAcuityRightEye = cust.VisualAcuityRightEye;
             obj.VisualAcuityRightEyeType = cust.VisualAcuityRightEyeType;
+
+            tbl_VisualAcuityType leftVisual = db.tbl_VisualAcuityType.Find(obj.VisualAcuityLeftEyeType);
+            obj.VisualAcuityLeftEyeTypeValue = leftVisual.Name;
+
+            tbl_VisualAcuityType rightVisual = db.tbl_VisualAcuityType.Find(obj.VisualAcuityRightEyeType);
+            obj.VisualAcuityRightEyeTypeValue = rightVisual.Name;
 
             obj.RxDrugList = new List<RxDrug>();
             obj.RxDrugList = GetPrescribrDrugList(id);
