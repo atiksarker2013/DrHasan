@@ -52,7 +52,9 @@ namespace Hasan.App.Controllers
                     if (data.flag == 1)
                     {
                         GlobalClass.RxId = data.Pkey.ToString();
-                        return RedirectToAction("PrintPrescription");
+
+                        return RedirectToAction("PrintPrescriptionFromIndex", "tbl_Rx", new { id = data.Pkey});
+                       // return RedirectToAction("PrintPrescriptionFromIndex");
 
                     }
                       
@@ -131,14 +133,24 @@ namespace Hasan.App.Controllers
 
         public ActionResult AddDrug(Prescription model)
         {
-            RxDrug obj = new RxDrug();
-            obj.Id = model.DrugId??0;
-            obj.DrugName = model.DrugName;
-            obj.Instruction = model.DrugNote;
-            model.RxDrugList.Add(obj);
+            if (model.DrugId!=null)
+            {
+                if (GlobalClass.DragList!=null && GlobalClass.DragList.Count>0)
+                {
+                    model.RxDrugList = GlobalClass.DragList;
+                }
+               
 
-            GlobalClass.DragList = new List<RxDrug>();
-            GlobalClass.DragList = model.RxDrugList;
+                RxDrug obj = new RxDrug();
+                obj.DrugId = model.DrugId ?? 0;
+                obj.DrugName = model.DrugName;
+                obj.Instruction = model.DrugNote;
+                model.RxDrugList.Add(obj);
+
+                GlobalClass.DragList = new List<RxDrug>();
+                GlobalClass.DragList = model.RxDrugList;
+            }
+          
 
             return PartialView("_PartialPrescribeDrug", model);
         }
@@ -154,14 +166,23 @@ namespace Hasan.App.Controllers
 
         public ActionResult AddDrop(Prescription model)
         {
-            RxDrop obj = new RxDrop();
-            obj.Id = model.DropId ?? 0;
-            obj.DropName = model.DropName;
-            obj.Instruction = model.DropNote;
-            model.RxDropList.Add(obj);
+            if (model.DropId!=null)
+            {
+                if (GlobalClass.DropList != null && GlobalClass.DropList.Count > 0)
+                {
+                    model.RxDropList = GlobalClass.DropList;
+                }
 
-            GlobalClass.DropList = new List<RxDrop>();
-            GlobalClass.DropList = model.RxDropList;
+                RxDrop obj = new RxDrop();
+                obj.DropId = model.DropId ?? 0;
+                obj.DropName = model.DropName;
+                obj.Instruction = model.DropNote;
+                model.RxDropList.Add(obj);
+
+                GlobalClass.DropList = new List<RxDrop>();
+                GlobalClass.DropList = model.RxDropList;
+            }
+            
 
             return PartialView("_PartialPrescribeDrop", model);
 
@@ -180,13 +201,25 @@ namespace Hasan.App.Controllers
 
         public ActionResult AddInvestigation(Prescription model)
         {
-            RxInvestigation obj = new RxInvestigation();
-            obj.InvestigationId = model.InvestigationId ?? 0;
-            obj.InvestigationName = model.InvestigationName;
-            obj.Instruction = model.InvestigationNote;
-            model.RxInvestigationList.Add(obj);
-            GlobalClass.InvestigationList = new List<RxInvestigation>();
-            GlobalClass.InvestigationList = model.RxInvestigationList;
+            if (model.InvestigationId!=null)
+            {
+                if (GlobalClass.InvestigationList != null && GlobalClass.InvestigationList.Count > 0)
+                {
+                    model.RxInvestigationList = GlobalClass.InvestigationList;
+                }
+
+
+                RxInvestigation obj = new RxInvestigation();
+                obj.InvestigationId = model.InvestigationId ?? 0;
+                obj.InvestigationName = model.InvestigationName;
+                obj.Instruction = model.InvestigationNote;
+                model.RxInvestigationList.Add(obj);
+
+                GlobalClass.InvestigationList = new List<RxInvestigation>();
+                GlobalClass.InvestigationList = model.RxInvestigationList;
+            }
+            
+
             return PartialView("_PartialPrescribeInvestigation", model);
 
         }

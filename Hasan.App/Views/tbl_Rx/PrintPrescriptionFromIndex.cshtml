@@ -9,23 +9,17 @@
         <div class="row invoice-info">
             <div class="col-sm-4 invoice-col">
                 <div class="row">
-                    @*<img src="@Url.Action("GetCompanyLogo", "ShowImage" ,new{id=GlobalClass.Company.CompanyKey})" alt="User Image" />*@
+                  
                 </div>
             </div>
             <div class="col-sm-5 invoice-col">
-                @*@Html.DisplayFor(m => GlobalClass.Company.CompanyAddress)<br />
-                    @Html.DisplayFor(m => GlobalClass.Company.CityList.CityName) @Html.DisplayFor(m => GlobalClass.Company.ZIPList.ZIP)<br />
-                    @Html.DisplayFor(m => GlobalClass.Company.StateList.StateName)<br />*@
-                @*@Html.DisplayFor(m => GlobalClass.Company.CompanyPhone) <label>OFFICE</label><br />
-                    @Html.DisplayFor(m => GlobalClass.Company.CompanyFax) <label>FAX</label><br />
-                    @Html.DisplayFor(m => GlobalClass.Company.ContactEmail)*@
+                
 
-                @*@MvcHtmlString.Create(Model.WorkOrderHeader)*@
+              
             </div>
             <div class="col-sm-3 invoice-col">
                 <br /><br />
-                @*<h4 class="Underline">Job Name:</h4>
-                    @Html.DisplayFor(m => m.JobName)*@
+                
 
 
             </div>
@@ -35,117 +29,16 @@
 
 
 
-<div class="row">
-    <div class="col-xs-11">
-
-
-        <div class="row invoice-info">
-
-            <div class="col-sm-5 invoice-col">
-
-                @*<h4 class="Underline">Service Provider</h4>
-                @MvcHtmlString.Create(Model.VendorDetail)<br />
-                @Html.DisplayFor(m => m.VendorPh)*@
-
-            </div>
-
-            <div class="col-sm-5 invoice-col">
-
-                @*<h4 class="Underline">Service Location</h4>
-                @MvcHtmlString.Create(Model.LocationDetail)<br />
-                @Html.DisplayFor(m => m.ServiceLocationPhone)*@
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-@*<div class="row">
-    <div class="col-xs-12">
-
-
-        <div class="row invoice-info">
-
-            <div class="col-xs-3">
-                <h4 class="Underline">Name</h4>
-                @Html.DisplayFor(m => m.Name)
 
 
 
-            </div>
-            <div class="col-xs-3">
-                <h4 class="Underline">Mrno</h4>
-                @Html.DisplayFor(m => m.Mrno)
-
-
-            </div>
-            <div class="col-xs-3">
-                <h4 class="Underline">Age</h4>
-                @Html.DisplayFor(m => m.Age)
-
-
-
-            </div>
-            <div class="col-xs-1">
-                <h4 class="Underline">Date</h4>
-                @Html.DisplayFor(m => m.EntryDate)
-
-
-            </div>
-
-        </div>
-    </div>
-</div>*@
 
 <div class="row">
     <div class="panel panel-default ">
-
         <div class="panel-body">
-            @*<div class="form-horizontal">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { id = "Name", @class = "form-control" } })
-                        </div>
-                    </div>
-
-
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.Age, new { htmlAttributes = new { id = "Age", @class = "form-control" } })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Mrno, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.Mrno, new { htmlAttributes = new { id = "Mrno", @class = "form-control" } })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.EntryDate, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.EntryDate, new { htmlAttributes = new { id = "EntryDate", @class = "form-control" } })
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>*@
-
-
 
             <table>
-                @*<tr>
-                    <th>Visual Acuity :</th>
-                </tr>*@
+               
                 <tr>
                     <td><h5>Name :</h5></td>
                     <td><h5>@Html.DisplayFor(m => m.Name)</h5></td>
@@ -284,42 +177,7 @@
 
         </div>
 
-        @*<table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>
-                        Drop Name
-                    </th>
-                    <th>
-                        Drop Instruction
-                    </th>
-
-                    <th>
-                        Remove Drop
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (int i = 0; i < Model.RxDropList.Count(); i++)
-                {
-                    <tr>
-                        <td>
-                            @Html.TextBoxFor(m => m.RxDropList[i].DropName)
-                        </td>
-
-                        <td>
-                            @Html.EditorFor(m => m.RxDropList[i].Instruction)
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-default" onclick="return RemoveDrop(this);">
-                                <i class="glyphicon glyphicon-remove"></i>
-                            </button>
-
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>*@
+      
     </div>
 </div>
 
