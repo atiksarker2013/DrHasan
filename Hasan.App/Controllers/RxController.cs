@@ -160,6 +160,11 @@ namespace Hasan.App.Controllers
             string RemoveDrugId = Convert.ToString(collection["RemoveDrugId"]);
             int rowIndex = int.Parse(collection.Get("RemoveDrugId"));
             model.RxDrugList.RemoveAt(rowIndex);
+
+            var itemToRemove = GlobalClass.DragList.SingleOrDefault(r => r.DrugId == model.DrugId && r.DrugName == model.DrugName && r.Instruction == model.DrugNote);
+            if (itemToRemove != null)
+                GlobalClass.DragList.Remove(itemToRemove);
+           
             ModelState.Clear();
             return PartialView("_PartialPrescribeDrug", model);
         }
@@ -190,10 +195,14 @@ namespace Hasan.App.Controllers
 
         public ActionResult RemoveDrop(Prescription model, FormCollection collection)
         {
-            //int rowIndex = int.Parse(collection.Get("dropRefRowIndex"));
             string RemoveDrugId = Convert.ToString(collection["RemoveDropId"]);
             int rowIndex = int.Parse(collection.Get("RemoveDropId"));
             model.RxDropList.RemoveAt(rowIndex);
+
+            var itemToRemove = GlobalClass.DropList.SingleOrDefault(r => r.DropId == model.DropId && r.DropName == model.DropName && r.Instruction == model.DropNote);
+            if (itemToRemove != null)
+                GlobalClass.DropList.Remove(itemToRemove);
+
             ModelState.Clear();
             return PartialView("_PartialPrescribeDrop", model);
         }
@@ -229,6 +238,11 @@ namespace Hasan.App.Controllers
             string RemoveDrugId = Convert.ToString(collection["RemoveInvestigationId"]);
             int rowIndex = int.Parse(collection.Get("RemoveInvestigationId"));
             model.RxInvestigationList.RemoveAt(rowIndex);
+
+            var itemToRemove = GlobalClass.InvestigationList.SingleOrDefault(r => r.InvestigationId == model.InvestigationId && r.InvestigationName == model.InvestigationName && r.Instruction == model.InvestigationNote);
+            if (itemToRemove != null)
+                GlobalClass.InvestigationList.Remove(itemToRemove);
+
             ModelState.Clear();
             return PartialView("_PartialPrescribeInvestigation", model);
         }

@@ -405,6 +405,8 @@ img {
   .right-side {
     margin: 0;
   }
+
+
 }
 /* Remove border radius */
 .flat {
@@ -2619,7 +2621,7 @@ Component: timeline
 /* Enhancement for printing */
 @media print {
   .invoice {
-    width: 100%;
+    width: 80%;
     border: 0;
     margin: 0;
     padding: 0;
@@ -2635,6 +2637,11 @@ Component: timeline
   .table-responsive > .table tr td {
     white-space: normal!important;
   }
+
+
+    a[href]:after {
+        content: none !important;
+    }
 }
 /* 
     Skins
